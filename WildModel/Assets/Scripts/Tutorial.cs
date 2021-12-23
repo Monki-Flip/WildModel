@@ -8,6 +8,7 @@ public class Tutorial : MonoBehaviour
 {
     public GameObject MESSAGE;  //MESSAGE.SetActive(true);
 
+    public GameObject TutorialPanel;
     public TasksManager TasksManager;
     public GameObject AngelPanel;
     public Canvas Canv;
@@ -386,7 +387,8 @@ public class Tutorial : MonoBehaviour
 
     public void SkipTutoral()
     {
-        AngelPanel.SetActive(false);
+        AngelPanel.SetActive(true);
+        TutorialPanel.SetActive(false);
         CurrentIteration = 100000;
         CellsManager.CreateStartField();
         CellsManager.PutAnimalOnCell(CellsManager.GetRandomCellForAnimal(), "Deer");
@@ -407,6 +409,8 @@ public class Tutorial : MonoBehaviour
 
     public void StartMainTasks()
     {
+        AngelPanel.SetActive(true);
+        TutorialPanel.SetActive(false);
         CurrentIteration = 100000;
         TasksManager.TasksCount = 13;
         TasksManager.TasksDone = 0;

@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class IterationsManager : MonoBehaviour
 {
     public int Day;
-    public int ToPlayCount;
     public LotkaVolterraModel LotkaModel;
     public Animals Animals;
 
@@ -19,26 +18,30 @@ public class IterationsManager : MonoBehaviour
 
     public Image Bar;
 
+    public bool IsPlaying;
+
+    public GameObject NPCPanel;
+    public GameObject Defeat;
+
     private void Start()
     {
         Day = 1;
-        ToPlayCount = 1;
     }
     public void Play()
     {
-        Day += ToPlayCount;
-        LotkaModel.FindPredicts();
-        LotkaModel.Preys = LotkaModel.PreysPredict[99];
-        LotkaModel.Predators = LotkaModel.PredatorsPredict[99];
-        StartCoroutine(BarFilling());
-        DayText.text = string.Format("{0} день", Day);
-        DeersCount.text = Math.Round(LotkaModel.Preys, 1).ToString();
-        WolvesCount.text = Math.Round(LotkaModel.Predators, 1).ToString();
-        //Animals.MakeRandomMoves();
+        if (!IsPlaying)
+        {
+            LotkaModel.FindPredicts();
+            LotkaModel.Preys = LotkaModel.PreysPredict[99];
+            LotkaModel.Predators = LotkaModel.PredatorsPredict[99];
+            StartCoroutine(BarFilling());
+            //Animals.MakeRandomMoves();
+        }
     }
 
     IEnumerator BarFilling() // работает не ровно 5с, а примерно 7.5
     {
+        IsPlaying = true;
         var initTime = 5f;
         while (Bar.fillAmount < 1f)
         {
@@ -46,6 +49,15 @@ public class IterationsManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         Bar.fillAmount = 0f;
-        yield return null;
+        IsPlaying = false;
+        Day++;
+        DayText.text = string.Format("{0} день", Day);
+        DeersCount.text = Math.Round(LotkaModel.Preys, 1).ToString();
+        WolvesCount.text = Math.Round(LotkaModel.Predators, 1).ToString();
+        if (Math.Round(LotkaModel.Preys, 1) < 0.1 || Math.Round(LotkaModel.Predators, 1) < 0.1)
+        {
+            NPCPanel.SetActive(true);
+            Defeat.SetActive(true);
+        }
     }
 }

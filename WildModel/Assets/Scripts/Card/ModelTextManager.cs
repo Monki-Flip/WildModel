@@ -18,6 +18,7 @@ public class ModelTextManager : MonoBehaviour
     public CardOutlineManager CardOutlineManager;
     public TMP_Text BuyButton;
     public GameObject ErrorMessage;
+    public TMP_Text ErrorText;
     public GameObject LeftBlockInfo;
 
     public Card LastBoughtCard;
@@ -95,7 +96,11 @@ public class ModelTextManager : MonoBehaviour
 
     public void Buy()
     {
-        if (IsCorrectForBuy())
+        if (CardOutlineManager.CurrentCard.Price > Score.Value)
+            StartCoroutine(ShowErrorMessage("points"));
+        else if (NewModel.Alpha < 0 || NewModel.Beta < 0 || NewModel.Sigma < 0 || NewModel.Gamma < 0)
+            StartCoroutine(ShowErrorMessage("coeff"));
+        else 
         {
             UpdateCurrentSystem();
             UpdateTextsOnStoreOpen();
@@ -104,8 +109,6 @@ public class ModelTextManager : MonoBehaviour
             PurchaseHistory.Add(CardOutlineManager.CurrentCard);
             CardOutlineManager.DisableAllCardsOutline();
         }
-        else
-            StartCoroutine(ShowErrorMessage());
     }
 
     public void UpdateCurrentSystem()
@@ -121,17 +124,17 @@ public class ModelTextManager : MonoBehaviour
         BuyButton.text = (-price).ToString();
     }
 
-    public bool IsCorrectForBuy()
+    IEnumerator ShowErrorMessage(string reason)
     {
-        return NewModel.Alpha  > 0
-            && NewModel.Beta > 0
-            && NewModel.Sigma  > 0
-            && NewModel.Gamma  > 0
-            && CardOutlineManager.CurrentCard.Price <= Score.Value;
-    }
-
-    IEnumerator ShowErrorMessage()
-    {
+        switch(reason)
+        {
+            case "coeff":
+                ErrorText.text = "Один из коэффициентов стал ниже нуля, поэтому ты не можешь купить эту карту, друг";
+                break;
+            case "points":
+                ErrorText.text = "Тебе не хватает очков, друг";
+                break;
+        }
         ErrorMessage.SetActive(true);
         LeftBlockInfo.SetActive(false);
         yield return new WaitForSeconds(1.5f);

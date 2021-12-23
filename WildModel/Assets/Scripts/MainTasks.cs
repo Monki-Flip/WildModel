@@ -10,6 +10,7 @@ public class MainTasks : MonoBehaviour
     public CellsManager CellsManager;
     public LotkaVolterraModel CurrentLotka;
     public ModelTextManager ModelTextManager;
+    public IterationsManager IterationsManager;
 
     private int CommonCellsCount;
     private int WaterCellsCount;
@@ -23,6 +24,10 @@ public class MainTasks : MonoBehaviour
     public Dictionary<string, Action> DataTasksUpdate;
     public List<string> TasksToCheck;
     private List<Card> LastPurchaseHistory;
+    public int FirstDay;
+
+    public GameObject WinPanel;
+    public GameObject DefeatPanel;
 
 
     private void Start()
@@ -97,7 +102,10 @@ public class MainTasks : MonoBehaviour
                                         .Where(x => x.TryGetComponent<Cell>(out Cell c) && (x.gameObject.GetComponent<Cell>().Name == "Grass" || x.gameObject.GetComponent<Cell>().Name == "Mushroom")).Count();
                 Debug.Log(foodCount);
                 if (foodCount > 1)
+                {
                     TasksManager.TasksPrefabInPanel.Where(x => x.name == "Task2(Clone)").First().GetComponent<Task>().MarkSecondCondition();
+                    break;
+                }
             }
         }
 
@@ -248,6 +256,7 @@ public class MainTasks : MonoBehaviour
                 {
                     TasksManager.ChangeTaskState("Task10(Clone)");
                     TasksToCheck.Remove("Task10");
+                    break;
                 }
             }
         }
@@ -296,6 +305,7 @@ public class MainTasks : MonoBehaviour
                 {
                     TasksManager.ChangeTaskState("Task11(Clone)");
                     TasksToCheck.Remove("Task11");
+                    break;
                 }
             }
         }
@@ -344,6 +354,7 @@ public class MainTasks : MonoBehaviour
                 {
                     TasksManager.ChangeTaskState("Task12(Clone)");
                     TasksToCheck.Remove("Task12");
+                    break;
                 }
             }
         }
@@ -366,11 +377,28 @@ public class MainTasks : MonoBehaviour
 
     private void CheckTask13()
     {
+        Debug.Log(IterationsManager.Day);
+        Debug.Log(FirstDay);
+        Debug.Log(Lotka.Preys);
+        Debug.Log(Lotka.Predators);
 
+        if (IterationsManager.Day - FirstDay == 7 && CurrentLotka.Preys > 0 && CurrentLotka.Predators > 0)
+        {
+            TasksManager.ChangeTaskState("Task12(Clone)");
+            TasksToCheck.Remove("Task12");
+            WinPanel.SetActive(true);
+        }
+        else if (IterationsManager.Day - FirstDay == 7)
+        {
+            TasksManager.ChangeTaskState("Task12(Clone)");
+            TasksToCheck.Remove("Task12");
+            DefeatPanel.SetActive(true);
+
+        }
     }
 
     private void UpdateDataForTask13()
     {
-
+        FirstDay = IterationsManager.Day;
     }
 }
