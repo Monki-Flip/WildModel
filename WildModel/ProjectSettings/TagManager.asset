@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Cell
+  - EmptyCell
+  - Canvas
+  - ZeroCoordinates
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Buttons
+  - 
+  - Panels
+  - Graph
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Animals
+    uniqueID: 1581403905
+    locked: 0
+  - name: CellsStack
+    uniqueID: 3249688969
+    locked: 0
+  - name: Panels
+    uniqueID: 2791416121
+    locked: 0
