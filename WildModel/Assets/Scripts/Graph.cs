@@ -31,26 +31,7 @@ public class Graph : MonoBehaviour
     {
         if (backgroundPanel.enabled)
         {
-            lotkaVolterra.FindPredicts();
-            if (TypeOfCreatures.ToLower() == "preys")
-            {
-                lineRenderer.startColor = Color.blue;
-                lineRenderer.endColor = Color.blue;
-                lineRenderer.startWidth = LineRendererStartWidth;
-                lineRenderer.endWidth = LineRendererEndWidth;
-                Draw(lotkaVolterra.PreysPredict, lotkaVolterra.Preys);
-                //Draw(CreateNewRandomDoubleArray(2500), lotkaVolterra.Preys);
-            }
-            
-            if (TypeOfCreatures.ToLower() == "predators")
-            {
-                lineRenderer.startWidth = LineRendererStartWidth;
-                lineRenderer.endWidth = LineRendererEndWidth;
-                lineRenderer.startColor = Color.red;
-                lineRenderer.endColor = Color.red;
-                Draw(lotkaVolterra.PredatorsPredict, lotkaVolterra.Predators);
-                //Draw(CreateNewRandomDoubleArray(2500), lotkaVolterra.Predators);
-            }
+            StartCoroutine(DrawLine());
         }
 
         if (!backgroundPanel.enabled)
@@ -59,18 +40,44 @@ public class Graph : MonoBehaviour
         }
     }
 
-    //private double[] CreateNewRandomDoubleArray(int v)
-    //{
-    //    System.Random random = new System.Random();
-    //    double[] array = new double[v];
-    //    for (int i = 0; i < v; i++)
-    //    {
-    //        array[i] = (double)(int)random.Next(1, 100);
-    //    }
-    //    return array;
-    //}
+    IEnumerator DrawLine()
+    {
+        lotkaVolterra.FindPredicts();
+        if (TypeOfCreatures.ToLower() == "preys")
+        {
+            lineRenderer.startColor = Color.blue;
+            lineRenderer.endColor = Color.blue;
+            lineRenderer.startWidth = LineRendererStartWidth;
+            lineRenderer.endWidth = LineRendererEndWidth;
+            Draw(lotkaVolterra.PreysPredict, lotkaVolterra.Preys);
+            //Draw(CreateNewRandomDoubleArray(2500), lotkaVolterra.Preys);
+            yield return new WaitForSecondsRealtime(.1f);
+        }
 
-    private void Draw(double[] predictions, double startY)
+        if (TypeOfCreatures.ToLower() == "predators")
+        {
+            lineRenderer.startWidth = LineRendererStartWidth;
+            lineRenderer.endWidth = LineRendererEndWidth;
+            lineRenderer.startColor = Color.red;
+            lineRenderer.endColor = Color.red;
+            Draw(lotkaVolterra.PredatorsPredict, lotkaVolterra.Predators);
+            //Draw(CreateNewRandomDoubleArray(2500), lotkaVolterra.Predators);
+            yield return new WaitForSecondsRealtime(.1f);
+        }
+    }
+
+        //private double[] CreateNewRandomDoubleArray(int v)
+        //{
+        //    System.Random random = new System.Random();
+        //    double[] array = new double[v];
+        //    for (int i = 0; i < v; i++)
+        //    {
+        //        array[i] = (double)(int)random.Next(1, 100);
+        //    }
+        //    return array;
+        //}
+
+        private void Draw(double[] predictions, double startY)
     {
         Vector3[] Tops = ConvertDoubleToVector3(predictions);
         Vector3 startY_vector = new Vector3(0f, (float)startY);
