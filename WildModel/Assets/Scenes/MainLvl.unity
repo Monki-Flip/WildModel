@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 46395649}
   m_Layer: 7
   m_Name: O
-  m_TagString: Untagged
+  m_TagString: ZeroCoordinates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -468,7 +468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 5.81, y: 5.68}
+  m_AnchoredPosition: {x: 5, y: 5}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &46395649
@@ -3769,7 +3769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &437387894
 Transform:
   m_ObjectHideFlags: 0
@@ -5157,7 +5157,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 175, y: 111.82001}
-  m_SizeDelta: {x: 350, y: 190.35999}
+  m_SizeDelta: {x: 350, y: 190.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &546395984
 GameObject:
@@ -5302,8 +5302,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 558143243}
-  - component: {fileID: 558143245}
   - component: {fileID: 558143244}
+  - component: {fileID: 558143245}
   m_Layer: 7
   m_Name: PredatorsGraph
   m_TagString: Untagged
@@ -5349,7 +5349,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5367,9 +5367,9 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1503551175
+  m_SortingLayer: 3
+  m_SortingOrder: 32767
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -5426,7 +5426,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!114 &558143245
 MonoBehaviour:
@@ -5437,7 +5437,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 558143242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 607c4ffc1e882a34ba74e5a6ee5abf86, type: 3}
+  m_Script: {fileID: 11500000, guid: 050e461f42049ee4a848723d2d135687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundPanel: {fileID: 1103140171}
@@ -6605,8 +6605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5048b4efba1708a41ac311fff5392d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Preys: 0
-  Predators: 0
+  Preys: 5
+  Predators: 2
   PreysPredict:
   - 0
   - 0
@@ -21479,8 +21479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 178.68, y: 98.45}
-  m_SizeDelta: {x: 342.64, y: 183.44}
+  m_AnchoredPosition: {x: 177.62, y: 98.45}
+  m_SizeDelta: {x: 340.53, y: 183.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1222680097
 GameObject:
@@ -24627,8 +24627,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 179.37, y: 99.31}
-  m_SizeDelta: {x: 341.26, y: 181.73}
+  m_AnchoredPosition: {x: 178.31, y: 99.31}
+  m_SizeDelta: {x: 339.15, y: 181.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1585771648
 GameObject:
@@ -24991,7 +24991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1614005081
 Transform:
   m_ObjectHideFlags: 0
@@ -26141,8 +26141,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1789945792}
-  - component: {fileID: 1789945794}
   - component: {fileID: 1789945793}
+  - component: {fileID: 1789945794}
   m_Layer: 7
   m_Name: PreysGraph
   m_TagString: Untagged
@@ -26188,7 +26188,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26206,9 +26206,9 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1503551175
+  m_SortingLayer: 3
+  m_SortingOrder: 32767
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -26265,7 +26265,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!114 &1789945794
 MonoBehaviour:
@@ -26276,7 +26276,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1789945791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 607c4ffc1e882a34ba74e5a6ee5abf86, type: 3}
+  m_Script: {fileID: 11500000, guid: 050e461f42049ee4a848723d2d135687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundPanel: {fileID: 1103140171}

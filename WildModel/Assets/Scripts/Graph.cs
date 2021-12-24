@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static UnityEngine.GameObject;
 
 public class Graph : MonoBehaviour
 {
@@ -13,85 +13,71 @@ public class Graph : MonoBehaviour
     [SerializeField] private LotkaVolterraModel lotkaVolterra;
     public String TypeOfCreatures;
 
-    
-    private void Start()
-    {
-    lineRenderer = GetComponent<LineRenderer>();
-    lineRenderer.alignment = LineAlignment.View;
+    // толщина линии
+    private float LineRendererStartWidth = 0.07f;
+    private float LineRendererEndWidth = 0.07f;
 
-    StartPoint = GameObject.FindGameObjectWithTag("ZeroCoordinates").GetComponent<RectTransform>();
-    float startX = StartPoint.position.x;
-    float startY = StartPoint.position.y;
-    //ZeroCoordinates = new Vector3(startX, startY);
-    ZeroCoordinates = new Vector3(5.799377f, 5f, 0);
-    }
+    void Start()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.alignment = LineAlignment.View;
 
-    private void Update()
-    {
-    if (backgroundPanel.enabled)
-    {
-    lotkaVolterra.FindPredicts();
-    if (TypeOfCreatures.ToLower() == "preys")
-    {
-    lineRenderer.startColor = Color.blue;
-    lineRenderer.endColor = Color.blue;
-    Draw(lotkaVolterra.PreysPredict, lotkaVolterra.Preys);
-    //Draw(CreateNewRandomDoubleArray(2500), lotkaVolterra.Preys);
+        StartPoint = FindGameObjectWithTag("ZeroCoordinates").GetComponent<RectTransform>();
+        ZeroCoordinates = StartPoint.rect.position;
     }
 
-    if (TypeOfCreatures.ToLower() == "predators")
+    // Update is called once per frame
+    void Update()
     {
-    lineRenderer.startColor = Color.red;
-    lineRenderer.endColor = Color.red;
-    Draw(lotkaVolterra.PredatorsPredict, lotkaVolterra.Predators);
-    //Draw(CreateNewRandomDoubleArray(2500), lotkaVolterra.Predators);
-    }
-    }
-    if (!backgroundPanel.enabled)
-    {
-    Clear();
-    }
+        if (backgroundPanel.enabled)
+        {
+            lotkaVolterra.FindPredicts();
+            if (TypeOfCreatures.ToLower() == "preys")
+            {
+                lineRenderer.startColor = Color.blue;
+                lineRenderer.endColor = Color.blue;
+                lineRenderer.startWidth = LineRendererStartWidth;
+                lineRenderer.endWidth = LineRendererEndWidth;
+                Draw(lotkaVolterra.PreysPredict, lotkaVolterra.Preys);
+            }
+            
+            if (TypeOfCreatures.ToLower() == "predators")
+            {
+                lineRenderer.startWidth = LineRendererStartWidth;
+                lineRenderer.endWidth = LineRendererEndWidth;
+                lineRenderer.startColor = Color.red;
+                lineRenderer.endColor = Color.red;
+                Draw(lotkaVolterra.PredatorsPredict, lotkaVolterra.Predators);
+            }
+        }
     }
 
-    //private double[] CreateNewRandomDoubleArray(int v)
-    //{
-    //    System.Random random = new System.Random();
-    //    double[] array = new double[v];
-    //    for (int i = 0; i < v; i++)
-    //    {
-    //        array[i] = (double)(int)random.Next(1, 100);
-    //    }
-    //    return array;
-    //}
-
-    private void Draw(double[] predictions, double startPos)
+    private void Draw(double[] predictions, double startY)
     {
-        Vector3 startPoint = new Vector3(0, (float)startPos);
         Vector3[] Tops = ConvertDoubleToVector3(predictions);
+        Vector3 startY_vector = new Vector3(0f, (float)startY);
 
-        lineRenderer.gameObject.transform.localPosition = startPoint; //startPoint; //ZeroCoordinates;
+        lineRenderer.gameObject.transform.localPosition = ZeroCoordinates;
         lineRenderer.positionCount = Tops.Length + 1;
-        lineRenderer.SetPosition(0, startPoint);
+        lineRenderer.SetPosition(0, startY_vector);
+
         for (int i = 1; i <= Tops.Length; i++)
         {
-            lineRenderer.SetPosition(i, Tops[i-1]);
+            lineRenderer.SetPosition(i, Tops[i - 1]);
         }
     }
 
-    private Vector3[] ConvertDoubleToVector3(double[] array)
+    private Vector3[] ConvertDoubleToVector3(double[] predictions)
     {
-        var xStep = transform.parent.GetComponent<RectTransform>().rect.width * 1/2500;
-        var yStep = transform.parent.GetComponent<RectTransform>().rect.height * 1/100;
-        Vector3[] result = new Vector3[array.Length];
-        for(int i = 0; i < array.Length; i++)
+        var xStep = transform.parent.GetComponent<RectTransform>().rect.width * 1 / 2500;
+        var yStep = transform.parent.GetComponent<RectTransform>().rect.height * 1 / 100;
+
+        Vector3[] result = new Vector3[predictions.Length];
+        for (int i = 0; i < predictions.Length; i++)
         {
-            result[i] = new Vector3((float)(xStep * i), (float)array[i] * yStep);
+            result[i] = new Vector3((float)(xStep * i), (float)(predictions[i] * yStep));
+
         }
         return result;
-    }
-
-    private void Clear()
-    {
-        lineRenderer.positionCount = 0;
     }
 }
