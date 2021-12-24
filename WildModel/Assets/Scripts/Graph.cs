@@ -8,7 +8,7 @@ public class Graph : MonoBehaviour
 {
     private LineRenderer lineRenderer;
     private Vector3 ZeroCoordinates;
-    private static RectTransform StartPoint;
+    private static RectTransform ZeroPoint;
     [SerializeField] private Canvas backgroundPanel;
     [SerializeField] private LotkaVolterraModel lotkaVolterra;
     public String TypeOfCreatures;
@@ -22,8 +22,8 @@ public class Graph : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.alignment = LineAlignment.View;
 
-        StartPoint = FindGameObjectWithTag("ZeroCoordinates").GetComponent<RectTransform>();
-        ZeroCoordinates = StartPoint.rect.position;
+        ZeroPoint = FindGameObjectWithTag("ZeroCoordinates").GetComponent<RectTransform>();
+        ZeroCoordinates = ZeroPoint.anchoredPosition3D; //new Vector3(5f, 5f, 0);
     }
 
     // Update is called once per frame
@@ -39,6 +39,7 @@ public class Graph : MonoBehaviour
                 lineRenderer.startWidth = LineRendererStartWidth;
                 lineRenderer.endWidth = LineRendererEndWidth;
                 Draw(lotkaVolterra.PreysPredict, lotkaVolterra.Preys);
+                //Draw(CreateNewRandomDoubleArray(2500), lotkaVolterra.Preys);
             }
             
             if (TypeOfCreatures.ToLower() == "predators")
@@ -48,16 +49,33 @@ public class Graph : MonoBehaviour
                 lineRenderer.startColor = Color.red;
                 lineRenderer.endColor = Color.red;
                 Draw(lotkaVolterra.PredatorsPredict, lotkaVolterra.Predators);
+                //Draw(CreateNewRandomDoubleArray(2500), lotkaVolterra.Predators);
             }
         }
+
+        if (!backgroundPanel.enabled)
+        {
+            Clear();
+        }
     }
+
+    //private double[] CreateNewRandomDoubleArray(int v)
+    //{
+    //    System.Random random = new System.Random();
+    //    double[] array = new double[v];
+    //    for (int i = 0; i < v; i++)
+    //    {
+    //        array[i] = (double)(int)random.Next(1, 100);
+    //    }
+    //    return array;
+    //}
 
     private void Draw(double[] predictions, double startY)
     {
         Vector3[] Tops = ConvertDoubleToVector3(predictions);
         Vector3 startY_vector = new Vector3(0f, (float)startY);
 
-        lineRenderer.gameObject.transform.localPosition = ZeroCoordinates;
+        gameObject.transform.GetComponent<RectTransform>().anchoredPosition3D = ZeroCoordinates;
         lineRenderer.positionCount = Tops.Length + 1;
         lineRenderer.SetPosition(0, startY_vector);
 
@@ -69,8 +87,8 @@ public class Graph : MonoBehaviour
 
     private Vector3[] ConvertDoubleToVector3(double[] predictions)
     {
-        var xStep = transform.parent.GetComponent<RectTransform>().rect.width * 1 / 2500;
-        var yStep = transform.parent.GetComponent<RectTransform>().rect.height * 1 / 100;
+        var xStep = (transform.parent.GetComponent<RectTransform>().rect.width - 10f) * 1 / predictions.Length;
+        var yStep = (transform.parent.GetComponent<RectTransform>().rect.height - 10f) * 1 / 100;
 
         Vector3[] result = new Vector3[predictions.Length];
         for (int i = 0; i < predictions.Length; i++)
@@ -79,5 +97,10 @@ public class Graph : MonoBehaviour
 
         }
         return result;
+    }
+
+    private void Clear()
+    {
+        lineRenderer.positionCount = 0;
     }
 }
