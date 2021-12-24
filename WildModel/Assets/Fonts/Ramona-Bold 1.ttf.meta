@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aba24e924a80c6b4db7c2446ea974a71
+guid: 253be4ce1517ae14494f9ffe29b6228c
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,7 +10,9 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Ramona
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: aba24e924a80c6b4db7c2446ea974a71, type: 3}
+  - {fileID: 12800000, guid: 4410a8a49575ba94da179da72a0eff88, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

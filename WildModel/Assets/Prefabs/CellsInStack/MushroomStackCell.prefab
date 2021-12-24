@@ -88,6 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663da127c69c77e42892e808b8791fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsAnimalSpawn: 0
+  SpawnCount: 0
   Name: Mushroom
   Prefab: {fileID: 0}
   HasTopAnyCell: 0
@@ -97,3 +99,4 @@ MonoBehaviour:
   HasBottomRightAnyCell: 0
   HasBottomAnyCell: 0
   Neighbors: []
+  Animal: {fileID: 0}
