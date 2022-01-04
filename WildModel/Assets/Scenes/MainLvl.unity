@@ -3618,7 +3618,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitCount: 5
+  IsDragging: 0
   CellsInStackCountText: {fileID: 1703959280}
+  CellsManager: {fileID: 695453900}
   Stack: []
   CommonCell: {fileID: 8414591346786280603, guid: 88714b5c586453d489795c42258bcdb0, type: 3}
   ForestCell: {fileID: 8552436128887275984, guid: ad8f5125d73880e4295b0ee2aa36f083, type: 3}
@@ -5165,6 +5167,7 @@ MonoBehaviour:
   Bounds: 5
   cam: {fileID: 519420031}
   TasksPanel: {fileID: 1534624717}
+  CellsStack: {fileID: 398370005}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -6594,7 +6597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90fd166c08ca1d4fb960a1064824bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CellsStackOutline: {fileID: 902818139}
   CellsStack: {fileID: 398370005}
   Score: {fileID: 1567135722}
   AnimalsManager: {fileID: 1342543500}
@@ -18435,7 +18437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &902818137
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21580,7 +21582,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1528.59, y: 1201.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200796920
 MonoBehaviour:
@@ -27136,7 +27138,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 636.00006, y: 314}
+  m_SizeDelta: {x: 1615.25, y: 1020.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1875563433
 MonoBehaviour:
@@ -28006,7 +28008,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1583.18, y: 1020.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1993702441
 MonoBehaviour:

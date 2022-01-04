@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1806039242720559500}
   - component: {fileID: 7363540963834052064}
   - component: {fileID: 1599897450605848019}
+  - component: {fileID: -5929957883364100225}
+  - component: {fileID: 5784174206658512498}
   m_Layer: 0
   m_Name: GrassStackCell
   m_TagString: Untagged
@@ -36,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 57, y: 41}
+  m_SizeDelta: {x: 114, y: 82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1806039242720559500
 CanvasRenderer:
@@ -100,3 +102,47 @@ MonoBehaviour:
   HasBottomAnyCell: 0
   Neighbors: []
   Animal: {fileID: 0}
+--- !u!114 &-5929957883364100225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586869358502484531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab489f782f287743abcac3b32b63a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CellsStack: {fileID: 0}
+--- !u!60 &5784174206658512498
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586869358502484531}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.14, y: 0.82}
+    newSize: {x: 0.57, y: 0.41}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 57.02486, y: -0.732996}
+      - {x: 21.203741, y: -40.941166}
+      - {x: -35.473022, y: -40.577583}
+      - {x: -56.25117, y: -0.45419854}
+      - {x: -20.110962, y: 40.456295}
+      - {x: 36.133442, y: 41.172783}

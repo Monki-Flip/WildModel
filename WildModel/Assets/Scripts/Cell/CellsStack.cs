@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class CellsStack : MonoBehaviour
 {
     public int InitCount;
+    public bool IsDragging;
 
     public TMP_Text CellsInStackCountText;
+    public CellsManager CellsManager;
 
     public List<GameObject> Stack;
     public GameObject CommonCell;
@@ -43,8 +45,10 @@ public class CellsStack : MonoBehaviour
             var ind = randI <= 20 ? 0 : randI <= 40 ? 1 : randI <= 60 ? 2 : randI <= 75 ? 3 : randI <= 90 ? 4 : 5; 
             var newCell = Instantiate(AllCells[ind]);
             newCell.transform.parent = gameObject.GetComponentInChildren<Canvas>().gameObject.transform;
-            newCell.GetComponent<RectTransform>().localScale = new Vector3(2f, 2f, 1);
+            newCell.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1);
             newCell.GetComponent<RectTransform>().anchoredPosition = NextPosition;
+            newCell.GetComponent<DragAndDrop>().CellsManager = CellsManager;
+
             NextPosition += Step;
 
             newCell.GetComponent<RectTransform>().SetAsFirstSibling();

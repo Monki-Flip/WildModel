@@ -10,6 +10,7 @@ public sealed class CameraControl : MonoBehaviour
     public float Bounds;
     public Camera cam;
     public GameObject TasksPanel;
+    public CellsStack CellsStack;
 
     private Vector2 startPos;
 
@@ -22,21 +23,24 @@ public sealed class CameraControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!CellsStack.IsDragging)
         {
-            startPos = cam.ScreenToWorldPoint(Input.mousePosition);
-            //Debug.Log("Нажал");
+            if (Input.GetMouseButtonDown(0))
+            {
+                startPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                //Debug.Log("Нажал");
+            }
+            if (Input.GetMouseButton(0) && !TasksPanel.activeSelf)
+            {
+                //Debug.Log("Зажал");
+                float posX = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
+                float posY = cam.ScreenToWorldPoint(Input.mousePosition).y - startPos.y;
+                targetPos = new Vector2(Mathf.Clamp(transform.position.x - posX, -Bounds, Bounds),
+                                        Mathf.Clamp(transform.position.y - posY, -Bounds, Bounds));
+            }
+            transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos.x, moveSpeed * Time.deltaTime),
+                                                Mathf.Lerp(transform.position.y, targetPos.y, moveSpeed * Time.deltaTime),
+                                                transform.position.z);
         }
-        if (Input.GetMouseButton(0) && !(TasksPanel.activeSelf))
-        {
-            //Debug.Log("Зажал");
-            float posX = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
-            float posY = cam.ScreenToWorldPoint(Input.mousePosition).y - startPos.y;
-            targetPos = new Vector2(Mathf.Clamp(transform.position.x - posX, -Bounds, Bounds),
-                                    Mathf.Clamp(transform.position.y - posY, -Bounds, Bounds));
-        }
-        transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos.x, moveSpeed * Time.deltaTime),
-                                            Mathf.Lerp(transform.position.y, targetPos.y, moveSpeed * Time.deltaTime),
-                                            transform.position.z);
     }
 }

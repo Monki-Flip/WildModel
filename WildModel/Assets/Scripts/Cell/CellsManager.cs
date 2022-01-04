@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class CellsManager : MonoBehaviour
 {
-    public CellsStackOutline CellsStackOutline;
     public CellsStack CellsStack;
     public Score Score;
     public Animals AnimalsManager;
@@ -77,7 +76,7 @@ public class CellsManager : MonoBehaviour
 
     public void CreateCell(GameObject emptyCell)
     {
-        if (CellsStackOutline.Outline.enabled && CanBePut(emptyCell))
+        if (CanBePut(emptyCell))
         {
             LastAddedScore = Score.Value;
             var cellInStick = CellsStack.Stack[0];
@@ -87,7 +86,6 @@ public class CellsManager : MonoBehaviour
             CheckAround(cell.GetComponent<Cell>(), emptyCell);
             cell.transform.parent = emptyCell.transform.parent;
             cell.transform.position = emptyCell.transform.position;
-            CellsStackOutline.Outline.enabled = false;
             Destroy(emptyCell);
             Cells.Add(cell);
             LastAddedScore = Score.Value - LastAddedScore;
@@ -220,18 +218,12 @@ public class CellsManager : MonoBehaviour
 
     public void CreateStartField()
     {
-        CellsStackOutline.Outline.enabled = true;
         CreateCell(FirstEmptyCell.Neighbors[0]);
-        CellsStackOutline.Outline.enabled = true;
         CreateCell(FirstEmptyCell.Neighbors[1]);
-        CellsStackOutline.Outline.enabled = true;
         CreateCell(FirstEmptyCell.Neighbors[2]);
-
-        CellsStackOutline.Outline.enabled = true;
         FirstEmptyCell.GetComponent<EmptyCell>().ÑreateEmptyCellBottom();
         CreateCell(FirstEmptyCell.Neighbors[3]);
 
-        CellsStackOutline.Outline.enabled = true;
         CreateCell(FirstEmptyCell.gameObject);
     }
 }
