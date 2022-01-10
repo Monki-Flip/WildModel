@@ -218,11 +218,12 @@ public class CellsManager : MonoBehaviour
 
     public void CreateStartField()
     {
+        FirstEmptyCell.GetComponent<EmptyCell>().ÑreateEmptyCellBottom();
+        CreateCell(FirstEmptyCell.Neighbors[3]);
+
         CreateCell(FirstEmptyCell.Neighbors[0]);
         CreateCell(FirstEmptyCell.Neighbors[1]);
         CreateCell(FirstEmptyCell.Neighbors[2]);
-        FirstEmptyCell.GetComponent<EmptyCell>().ÑreateEmptyCellBottom();
-        CreateCell(FirstEmptyCell.Neighbors[3]);
 
         CreateCell(FirstEmptyCell.gameObject);
     }

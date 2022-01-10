@@ -10,7 +10,8 @@ public class Animals : MonoBehaviour
     public void MakeRandomMoves()
     {
         
-        Deers[0].GetComponent<Animation>().Play();
+        //Deers[0].GetComponent<Animation>().Play();
+
         
     }
 }
