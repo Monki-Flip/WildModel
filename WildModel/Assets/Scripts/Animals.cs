@@ -4,14 +4,52 @@ using UnityEngine;
 
 public class Animals : MonoBehaviour
 {
-    public List<GameObject> Deers;
-    public List<GameObject> Wolves;
+    public List<GameObject> List;
 
     public void MakeRandomMoves()
     {
-        
-        //Deers[0].GetComponent<Animation>().Play();
+        foreach(var animal in List)
+            StartCoroutine(animal.GetComponent<Animal>().MakeRandomMoves(5));
 
-        
+    }
+
+    public int GetDeersCount()
+    {
+        var count = 0;
+        foreach(var animal in List)
+            if (animal.GetComponent<Animal>().AnimalType == "Deer")
+                count++;
+        return count;
+    }
+
+    public int GetWolvesCount()
+    {
+        var count = 0;
+        foreach (var animal in List)
+            if (animal.GetComponent<Animal>().AnimalType == "Wolf")
+                count++;
+        return count;
+    }
+
+    public void DeleteRandomDeer()
+    {
+        foreach (var animal in List)
+            if (animal.GetComponent<Animal>().AnimalType == "Deer")
+            {
+                List.Remove(animal);
+                Destroy(animal);
+                break;
+            }
+    }
+
+    public void DeleteRandomWolf()
+    {
+        foreach (var animal in List)
+            if (animal.GetComponent<Animal>().AnimalType == "Wolf")
+            {
+                List.Remove(animal);
+                Destroy(animal);
+                break;
+            }
     }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8475443543163298778}
   - component: {fileID: 910724040089181742}
   - component: {fileID: 3248073920958130637}
-  - component: {fileID: 3669036004207821731}
   m_Layer: 0
   m_Name: Deers
   m_TagString: Untagged
@@ -97,19 +96,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimalType: Deer
---- !u!111 &3669036004207821731
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557438570441953069}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: f9df91eb5bf875948844de7dd00fae95, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: f9df91eb5bf875948844de7dd00fae95, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0

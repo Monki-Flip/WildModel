@@ -40,6 +40,7 @@ public class CellsManager : MonoBehaviour
         var cells = Cells.Where(x => x.GetComponent<Cell>().Name != "Water" && x.GetComponent<Cell>().Name != "Mountain" && x.GetComponent<Cell>().Animal == null).ToList();
         var rnd = new System.Random();
         var randI = rnd.Next(0, cells.Count);
+        Debug.Log(randI + "   " + cells.Count);
         return cells[randI];
     }
 
@@ -50,8 +51,8 @@ public class CellsManager : MonoBehaviour
         animal.transform.localScale = new Vector3(1f, 1f, 1f);
         animal.transform.localPosition = new Vector3(0f, 0.2f, 0f);
         cell.GetComponent<Cell>().Animal = animal;
-        if (animalName == "Deer")
-            AnimalsManager.Deers.Add(animal);
+        cell.GetComponent<Cell>().IsAnimalOn = true;
+        AnimalsManager.List.Add(animal);
     }
 
     public GameObject GetCell(string name)
@@ -83,12 +84,14 @@ public class CellsManager : MonoBehaviour
             CellsStack.RemoveTop();
             //Debug.Log(cellInStick.GetComponent<Cell>().Name);
             var cell = Instantiate(GetCell(cellInStick.GetComponent<Cell>().Name));
+            //Debug.Log(cell.name + ": ");    
             CheckAround(cell.GetComponent<Cell>(), emptyCell);
             cell.transform.parent = emptyCell.transform.parent;
             cell.transform.position = emptyCell.transform.position;
             Destroy(emptyCell);
             Cells.Add(cell);
             LastAddedScore = Score.Value - LastAddedScore;
+            
         }
     }
 
@@ -144,6 +147,10 @@ public class CellsManager : MonoBehaviour
 
     public void MarkPosition(GameObject obj, Cell cell, GameObject emptyCell)
     {
+        //Debug.Log(obj.name);
+        //cell.Neighbors.Add(obj);
+        //obj.GetComponent<Cell>().Neighbors.Add(cell.gameObject);
+
         Vector2 pos = obj.transform.position;
         if (pos == (Vector2)emptyCell.transform.position + Vector2.up * 0.85f + Vector2.right * 0.15f)
             cell.HasTopAnyCell = true;
@@ -157,12 +164,17 @@ public class CellsManager : MonoBehaviour
             cell.HasBottomLeftAnyCell = true;
         else if (pos == (Vector2)emptyCell.transform.position + Vector2.down * 0.425f + Vector2.right * 0.825f)
             cell.HasBottomRightAnyCell = true;
+        else if (obj.tag == "Cell")
+        {
+            cell.Neighbors.Remove(obj);
+            obj.GetComponent<Cell>().Neighbors.Remove(cell.gameObject);
+        }
     }
 
     public void AddScore(Cell cell, Cell nearCell)
     {
         var name = nearCell.Name;
-        Debug.Log("Зашел в функц" + name + nearCell);
+        //Debug.Log("Зашел в функц" + name + nearCell);
         switch (cell.Name)
         {
             case "Common":

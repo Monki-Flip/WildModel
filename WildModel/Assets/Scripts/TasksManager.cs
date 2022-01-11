@@ -51,7 +51,7 @@ public class TasksManager : MonoBehaviour
 
             if (prefab.name.Substring(0, 4) == "Task")
             {
-                Debug.Log(prefab.name.Remove(prefab.name.Length - 7));
+                //Debug.Log(prefab.name.Remove(prefab.name.Length - 7));
                 MainTasks.DataTasksUpdate[prefab.name.Remove(prefab.name.Length - 7)]();
                 MainTasks.TasksToCheck.Add(prefab.name.Remove(prefab.name.Length - 7));
             }

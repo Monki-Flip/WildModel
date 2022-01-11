@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    public bool IsAnimalSpawn;
+    public bool IsAnimalOn;
     public int SpawnCount;
 
     public string Name;

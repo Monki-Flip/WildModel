@@ -32,7 +32,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
         StartPos = transform.localPosition;
         StartCoroutine(ScaleToBoardCellSize());
-        Debug.Log("OnBeginDrag");
+        //Debug.Log("OnBeginDrag");
     }
 
     IEnumerator ScaleToBoardCellSize()
@@ -46,7 +46,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
+        //Debug.Log("OnDrag");
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
         var hittenColliders = Physics2D.OverlapCircleAll(transform.position, 0.5f).Where(x => x.gameObject.name == "EmptyCell(Clone)").ToList();
@@ -75,7 +75,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
+        //Debug.Log("OnEndDrag");
         if (IntersectedCollider != null)
         {
             Debug.Log(IntersectedCollider.gameObject);
@@ -114,7 +114,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         CellsStack.IsDragging = true;
-        Debug.Log("OnPointerDown");
+        //Debug.Log("OnPointerDown");
     }
 
 }
