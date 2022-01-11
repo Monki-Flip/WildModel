@@ -398,7 +398,7 @@ public class Tutorial : MonoBehaviour
         Lotka.Preys = 5;
         Lotka.Predators = 2;
         Lotka.UpdateAnimalsCounters();
-        TasksManager.TasksCount = 13;
+        TasksManager.TasksCount = 12;
         TasksManager.NextTaskToAdd = 2;
         TasksManager.TasksButtonMainText.text = "Баланс мира";
         TasksManager.UpdateTaskButton();
@@ -412,7 +412,7 @@ public class Tutorial : MonoBehaviour
         AngelPanel.SetActive(true);
         TutorialPanel.SetActive(false);
         CurrentIteration = 100000;
-        TasksManager.TasksCount = 13;
+        TasksManager.TasksCount = 12;
         TasksManager.TasksDone = 0;
         TasksManager.NextTaskToAdd = 2;
         TasksManager.TasksButtonMainText.text = "Баланс мира";

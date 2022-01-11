@@ -1,113 +1,83 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static UnityEngine.GameObject;
 
 public class Graph : MonoBehaviour
 {
-    private LineRenderer lineRenderer;
-    private Vector3 ZeroCoordinates;
-    private static RectTransform ZeroPoint;
-    [SerializeField] private Canvas backgroundPanel;
-    [SerializeField] private LotkaVolterraModel lotkaVolterra;
-    public String TypeOfCreatures;
+    public LotkaVolterraModel Lotka;
 
-    // толщина линии
-    private float LineRendererStartWidth = 0.07f;
-    private float LineRendererEndWidth = 0.07f;
+    public GameObject ZeroDot;
+    public GameObject X;
+    public GameObject Y;
 
-    void Start()
+    public LineRenderer DeersLineRenderer;
+    public LineRenderer WolvesLineRenderer;
+
+    public float Scale;
+    public GameObject XDivision;
+    public int AmountXDivision;
+    public GameObject YDivision;
+    public int AmountYDivision;
+
+    private void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.alignment = LineAlignment.View;
-
-        ZeroPoint = FindGameObjectWithTag("ZeroCoordinates").GetComponent<RectTransform>();
-        ZeroCoordinates = ZeroPoint.anchoredPosition3D; //new Vector3(5f, 5f, 0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (backgroundPanel.enabled)
+        for (var i = 1; i < AmountXDivision + 1; i++)
         {
-            StartCoroutine(DrawLine());
+            var division = Instantiate(XDivision);
+            division.transform.parent = ZeroDot.transform;
+            division.transform.localScale = new Vector3(1f, 1f, 1f);
+            division.transform.localPosition = new Vector3(i * Scale, 0, 0);
+            division.GetComponentInChildren<TMP_Text>().text = i.ToString();
         }
 
-        if (!backgroundPanel.enabled)
+        for (var i = 1; i < AmountYDivision + 1; i++)
         {
-            Clear();
-        }
-    }
-
-    IEnumerator DrawLine()
-    {
-        lotkaVolterra.FindPredicts();
-        if (TypeOfCreatures.ToLower() == "preys")
-        {
-            lineRenderer.startColor = Color.blue;
-            lineRenderer.endColor = Color.blue;
-            lineRenderer.startWidth = LineRendererStartWidth;
-            lineRenderer.endWidth = LineRendererEndWidth;
-            Draw(lotkaVolterra.PreysPredict, lotkaVolterra.Preys);
-            //Draw(CreateNewRandomDoubleArray(2500), lotkaVolterra.Preys);
-            yield return new WaitForSecondsRealtime(.1f);
-        }
-
-        if (TypeOfCreatures.ToLower() == "predators")
-        {
-            lineRenderer.startWidth = LineRendererStartWidth;
-            lineRenderer.endWidth = LineRendererEndWidth;
-            lineRenderer.startColor = Color.red;
-            lineRenderer.endColor = Color.red;
-            Draw(lotkaVolterra.PredatorsPredict, lotkaVolterra.Predators);
-            //Draw(CreateNewRandomDoubleArray(2500), lotkaVolterra.Predators);
-            yield return new WaitForSecondsRealtime(.1f);
+            var division = Instantiate(YDivision);
+            division.transform.parent = ZeroDot.transform;
+            division.transform.localScale = new Vector3(1f, 1f, 1f);
+            division.transform.localPosition = new Vector3(0, i * Scale, 0);
+            division.GetComponentInChildren<TMP_Text>().text = i.ToString();
         }
     }
 
-        //private double[] CreateNewRandomDoubleArray(int v)
-        //{
-        //    System.Random random = new System.Random();
-        //    double[] array = new double[v];
-        //    for (int i = 0; i < v; i++)
-        //    {
-        //        array[i] = (double)(int)random.Next(1, 100);
-        //    }
-        //    return array;
-        //}
-
-        private void Draw(double[] predictions, double startY)
+    public void DrawPreysGraph()
     {
-        Vector3[] Tops = ConvertDoubleToVector3(predictions);
-        Vector3 startY_vector = new Vector3(0f, (float)startY);
-
-        gameObject.transform.GetComponent<RectTransform>().anchoredPosition3D = ZeroCoordinates;
-        lineRenderer.positionCount = Tops.Length + 1;
-        lineRenderer.SetPosition(0, startY_vector);
-
-        for (int i = 1; i <= Tops.Length; i++)
+        Lotka.FindPredicts();
+        var dots = Lotka.PreysPredict;
+        var dotsVectors = new Vector3[dots.Length - (dots.Length - AmountXDivision * 100)];
+        var x = 0d;
+        Debug.Log(dots.Length);
+        for (var i = 0; i < dots.Length - (dots.Length - AmountXDivision * 100); i++)
         {
-            lineRenderer.SetPosition(i, Tops[i - 1]);
+            dotsVectors[i] = new Vector3((float) x * Scale, (float)dots[i] * Scale, 0);
+            x += 0.010004001600640256;
         }
+
+        DrawGraph(dotsVectors, DeersLineRenderer);
     }
 
-    private Vector3[] ConvertDoubleToVector3(double[] predictions)
+    public void DrawPredatorsGraph()
     {
-        var xStep = (transform.parent.GetComponent<RectTransform>().rect.width - 10f) * 1 / predictions.Length;
-        var yStep = (transform.parent.GetComponent<RectTransform>().rect.height - 10f) * 1 / 100;
-
-        Vector3[] result = new Vector3[predictions.Length];
-        for (int i = 0; i < predictions.Length; i++)
+        Lotka.FindPredicts();
+        var dots = Lotka.PredatorsPredict;
+        var dotsVectors = new Vector3[dots.Length - (dots.Length - AmountXDivision * 100)];
+        var x = 0d;
+        Debug.Log(dots.Length);
+        for (var i = 0; i < dots.Length - (dots.Length - AmountXDivision * 100); i++)
         {
-            result[i] = new Vector3((float)(xStep * i), (float)(predictions[i] * yStep));
-
+            dotsVectors[i] = new Vector3((float)x * Scale, (float)dots[i] * Scale, 0);
+            x += 0.010004001600640256;
         }
-        return result;
+
+        DrawGraph(dotsVectors, WolvesLineRenderer);
     }
 
-    private void Clear()
+    public void DrawGraph(Vector3[] tops, LineRenderer renderer)
     {
-        lineRenderer.positionCount = 0;
+        renderer.positionCount = tops.Length;
+        renderer.SetPositions(tops);
     }
 }

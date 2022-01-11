@@ -9,11 +9,6 @@ public class Animal : MonoBehaviour
     public string AnimalType;
     private bool IsMoving;
 
-    private void Update()
-    {
-        Debug.Log(IsMoving + "     " + gameObject.name);
-    }
-
     public IEnumerator MakeRandomMoves(int movesCount)
     {
         for (var i = 0; i < movesCount; i++)
