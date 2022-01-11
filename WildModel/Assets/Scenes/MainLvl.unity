@@ -24502,6 +24502,7 @@ MonoBehaviour:
   Day: 0
   LotkaModel: {fileID: 713428741}
   Animals: {fileID: 1342543500}
+  CellsManager: {fileID: 695453900}
   DayText: {fileID: 1401981239}
   DeersCount: {fileID: 1548601392}
   WolvesCount: {fileID: 273194224}
@@ -25458,8 +25459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15862716238b724fa924e189a4a7d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Deers: []
-  Wolves: []
+  List: []
 --- !u!4 &1342543501
 Transform:
   m_ObjectHideFlags: 0
