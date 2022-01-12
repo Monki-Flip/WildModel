@@ -172,7 +172,9 @@ public class MainTasks : MonoBehaviour
     private void CheckTask6()
     {
         TasksToCheck.Remove("Task6");
-        Destroy(TasksManager.TasksPrefabInPanel.Where(x => x.name == "Task6(Clone)").First());
+        var task = (TasksManager.TasksPrefabInPanel.Where(x => x.name == "Task6(Clone)").First());
+        TasksManager.TasksPrefabInPanel.Remove(task);
+        Destroy(task);
         TasksManager.AddTaskToPanel();
     }
 
