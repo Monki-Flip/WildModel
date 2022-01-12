@@ -382,8 +382,8 @@ public class Tutorial : MonoBehaviour
         CellsManager.PutAnimalOnCell(CellsManager.GetRandomCellForAnimal(), "Wolf");
         TasksManager.Score.Add(95);
         CellsManager.CellsStack.AddRandomCells(10);
-        Lotka.Preys = 5;
-        Lotka.Predators = 2;
+        Lotka.Preys = 20;
+        Lotka.Predators = 5;
         Lotka.UpdateAnimalsCounters();
         TasksManager.TasksCount = 12;
         TasksManager.NextTaskToAdd = 2;

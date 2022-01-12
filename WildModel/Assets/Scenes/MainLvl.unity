@@ -7735,6 +7735,8 @@ MonoBehaviour:
   AmountXDivision: 0
   YDivision: {fileID: 0}
   AmountYDivision: 0
+  XDivs: []
+  YDivs: []
 --- !u!1 &566859440
 GameObject:
   m_ObjectHideFlags: 0
@@ -9713,8 +9715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5048b4efba1708a41ac311fff5392d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Preys: 5
-  Predators: 2
+  Preys: 20
+  Predators: 5
   PreysPredict:
   - 0
   - 0
@@ -14717,10 +14719,10 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Alpha: 0.1
-  Beta: 0.02
-  Gamma: 0.08
-  Sigma: 0.02
+  Alpha: 1.1
+  Beta: 0.4
+  Gamma: 0.4
+  Sigma: 0.1
   PreysCounter: {fileID: 1548601392}
   PredatorsCounter: {fileID: 273194224}
 --- !u!4 &713428742
@@ -23415,19 +23417,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1206957743}
         m_TargetAssemblyTypeName: Graph, Assembly-CSharp
-        m_MethodName: DrawPreysGraph
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1206957743}
-        m_TargetAssemblyTypeName: Graph, Assembly-CSharp
-        m_MethodName: DrawPredatorsGraph
+        m_MethodName: UpdateAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26202,6 +26192,8 @@ MonoBehaviour:
   AmountXDivision: 25
   YDivision: {fileID: 930145266082469595, guid: 3c1b7b0d9ba264546a54101659c3f0cf, type: 3}
   AmountYDivision: 10
+  XDivs: []
+  YDivs: []
 --- !u!1 &1222680097
 GameObject:
   m_ObjectHideFlags: 0
