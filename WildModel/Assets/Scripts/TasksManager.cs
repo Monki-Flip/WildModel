@@ -27,6 +27,8 @@ public class TasksManager : MonoBehaviour
 
     public MainTasks MainTasks;
 
+    public GameObject OpenImg;
+
 
     private void Start()
     {
@@ -91,5 +93,10 @@ public class TasksManager : MonoBehaviour
         str.Append(TasksDone.ToString() + "/" + TasksCount.ToString());
         Bar.fillAmount = (float)TasksDone / (float) TasksCount;
         TasksButtonPregressText.text = str.ToString();
+    }
+
+    public void ChangeOpenImgState()
+    {
+        OpenImg.transform.rotation = OpenImg.transform.rotation.z == 0 ? Quaternion.Euler(0, 0, -90) : Quaternion.Euler(0, 0, 0);
     }
 }

@@ -14,7 +14,8 @@ public class EmptyCell : MonoBehaviour
 
     void OnMouseDown()
     {
-        CellsManager.CreateCell(this.gameObject);
+        if(CellsStack.Stack.Count > 0)
+            CellsManager.CreateCell(this.gameObject);
     }
 
     private GameObject CreateEmptyCell()

@@ -306,7 +306,7 @@ public class Tutorial : MonoBehaviour
                 ShopCloseButton.onClick.Invoke();
                 Canv.enabled = true;
                 TextCloud.ChangeButton();
-                TextCloud.PlayAnim("Open1");
+                TextCloud.PlayAnim("Open3");
                 TextCloud.DisplayText(CurrentText);
                 CurrentText++;
 

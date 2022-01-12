@@ -222,10 +222,13 @@ public class MainTasks : MonoBehaviour
         {
             if (cell.GetComponent<Cell>().Name == "Mountain")
             {
+                /*
                 var emptyCellsAroundCount = Physics2D.OverlapCircleAll(cell.transform.position, 0.55f)
                                         .Where(x => x.TryGetComponent<EmptyCell>(out EmptyCell c)).Count();
                 if (emptyCellsAroundCount == 0)
                     MountainCells.Add(cell);
+                */
+                MountainCells.Add(cell);
             }
         }
     }
@@ -270,10 +273,13 @@ public class MainTasks : MonoBehaviour
         {
             if (cell.GetComponent<Cell>().Name == "Water")
             {
+                /*
                 var emptyCellsAroundCount = Physics2D.OverlapCircleAll(cell.transform.position, 0.55f)
                                         .Where(x => x.TryGetComponent<EmptyCell>(out EmptyCell c)).Count();
                 if (emptyCellsAroundCount == 0)
                     WaterCells.Add(cell);
+                */
+                WaterCells.Add(cell);
             }
         }
     }
@@ -319,10 +325,13 @@ public class MainTasks : MonoBehaviour
         {
             if (cell.GetComponent<Cell>().Name == "Water")
             {
+                /*
                 var emptyCellsAroundCount = Physics2D.OverlapCircleAll(cell.transform.position, 0.55f)
                                         .Where(x => x.TryGetComponent<EmptyCell>(out EmptyCell c)).Count();
                 if (emptyCellsAroundCount == 0)
                     WaterCells.Add(cell);
+                */
+                WaterCells.Add(cell);
             }
         }
     }
@@ -368,10 +377,13 @@ public class MainTasks : MonoBehaviour
         {
             if (cell.GetComponent<Cell>().Name == "Mushroom")
             {
+                /*
                 var emptyCellsAroundCount = Physics2D.OverlapCircleAll(cell.transform.position, 0.55f)
                                         .Where(x => x.TryGetComponent<EmptyCell>(out EmptyCell c)).Count();
                 if (emptyCellsAroundCount == 0)
                     MushroomCells.Add(cell);
+                */
+                MushroomCells.Add(cell);
             }
         }
     }
