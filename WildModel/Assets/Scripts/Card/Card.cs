@@ -10,6 +10,7 @@ public class Card : MonoBehaviour
     public ModelTextManager TextManager;
     public CardOutlineManager CardOutlineManager;
     public Outline Outline;
+    public Image OutlineImage;
 
     public int Price;
     public double AlphaDiff;
@@ -21,6 +22,7 @@ public class Card : MonoBehaviour
     private void Start()
     {
         PriceText.text = Price.ToString();
+        OutlineImage.enabled = false;
     }
 
 
@@ -40,10 +42,12 @@ public class Card : MonoBehaviour
     {
         CardOutlineManager.CurrentCard = this;
         Outline.enabled = true;
+        OutlineImage.enabled = true;
     }
 
     public void DisableOutlineState()
     {
         Outline.enabled = false;
+        OutlineImage.enabled = false;
     }
 }

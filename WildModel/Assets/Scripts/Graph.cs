@@ -22,6 +22,9 @@ public class Graph : MonoBehaviour
     public GameObject YDivision;
     public int AmountYDivision;
 
+    private List<GameObject> XDivs = new List<GameObject>();
+    private List<GameObject> YDivs = new List<GameObject>();
+
     private void Start()
     {
         for (var i = 1; i < AmountXDivision + 1; i++)
@@ -31,6 +34,7 @@ public class Graph : MonoBehaviour
             division.transform.localScale = new Vector3(1f, 1f, 1f);
             division.transform.localPosition = new Vector3(i * Scale, 0, 0);
             division.GetComponentInChildren<TMP_Text>().text = i.ToString();
+            XDivs.Add(division);
         }
 
         for (var i = 1; i < AmountYDivision + 1; i++)
@@ -40,6 +44,7 @@ public class Graph : MonoBehaviour
             division.transform.localScale = new Vector3(1f, 1f, 1f);
             division.transform.localPosition = new Vector3(0, i * Scale, 0);
             division.GetComponentInChildren<TMP_Text>().text = i.ToString();
+            YDivs.Add(division);
         }
     }
 
