@@ -65,7 +65,6 @@ public class Tutorial : MonoBehaviour
                 IsRun[CurrentIteration] = true;
                 System.Threading.Thread.Sleep(1000);
                 Canv.enabled = true;
-                TextCloud.MakeCloseButtonBlack();
                 Panel.color = new Color(0, 0, 0, 0.5f);
                 TextCloud.PlayAnim("Open2");
                 TextCloud.ChangeButton();
@@ -180,10 +179,8 @@ public class Tutorial : MonoBehaviour
                 TextCloud.Angel.transform.localPosition += new Vector3(40f, 0f, 0f);
                 TextCloud.gameObject.transform.localPosition += new Vector3(40f, 0f, 0f);
                 TextCloud.ChangeButton();
-                TextCloud.PlayAnim("Open4.2");
+                TextCloud.PlayAnim("Open1");
                 TextCloud.DisplayText(CurrentText);
-                TextCloud.NextTextButton.transform.localPosition += new Vector3(150f, 50f, 0f);
-                TextCloud.CloseButton.transform.localPosition += new Vector3(150f, 50f, 0f);
                 CurrentText++;
             }
         }
@@ -192,7 +189,7 @@ public class Tutorial : MonoBehaviour
             if (!IsRun[CurrentIteration])
             {
                 IsRun[CurrentIteration] = true;
-                TextCloud.PlayAnim("Open4");
+                TextCloud.PlayAnim("Open5");
                 TextCloud.DisplayText(CurrentText);
                 CurrentText++;
             }
@@ -202,7 +199,7 @@ public class Tutorial : MonoBehaviour
             if (!IsRun[CurrentIteration])
             {
                 IsRun[CurrentIteration] = true;
-                TextCloud.PlayAnim("Open4.2");
+                TextCloud.PlayAnim("Open1");
                 TextCloud.DisplayText(CurrentText);
                 CurrentText++;
             }
@@ -212,7 +209,7 @@ public class Tutorial : MonoBehaviour
             if (!IsRun[CurrentIteration])
             {
                 IsRun[CurrentIteration] = true;
-                TextCloud.PlayAnim("Open4");
+                TextCloud.PlayAnim("Open3");
                 TextCloud.DisplayText(CurrentText);
                 CurrentText++;
             }
@@ -223,14 +220,12 @@ public class Tutorial : MonoBehaviour
             {
                 IsRun[CurrentIteration] = true;
                 TextCloud.ChangeButton();
-                TextCloud.PlayAnim("Open4");
+                TextCloud.PlayAnim("Open5");
                 TextCloud.DisplayText(CurrentText);
                 CurrentText++;
             }
             else if (!TextCloud.IsTyping)
             {
-                TextCloud.NextTextButton.transform.localPosition -= new Vector3(150f, 50f, 0f);
-                TextCloud.CloseButton.transform.localPosition -= new Vector3(150f, 50f, 0f);
                 TextCloud.Angel.transform.localPosition -= new Vector3(40f, 0f, 0f);
                 TextCloud.gameObject.transform.localPosition -= new Vector3(40f, 0f, 0f);
                 CurrentIteration++;

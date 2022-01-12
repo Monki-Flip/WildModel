@@ -49,7 +49,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         //Debug.Log("OnDrag");
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
-        var hittenColliders = Physics2D.OverlapCircleAll(transform.position, 0.5f).Where(x => x.gameObject.name == "EmptyCell(Clone)").ToList();
+        var hittenColliders = Physics2D.OverlapCircleAll(transform.position, 0.5f).Where(x => x.gameObject.name == "EmptyCell(Clone)" || x.gameObject.name == "EmptyCell").ToList();
         var minLen = float.MaxValue;
         if(IntersectedCollider != null)
             IntersectedCollider.GetComponent<SpriteRenderer>().color = Color.white;

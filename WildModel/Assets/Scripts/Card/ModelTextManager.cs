@@ -20,6 +20,7 @@ public class ModelTextManager : MonoBehaviour
     public GameObject ErrorMessage;
     public TMP_Text ErrorText;
     public GameObject LeftBlockInfo;
+    public GameObject BuyPointsImg;
 
     public Card LastBoughtCard;
     public List<Card> PurchaseHistory;
@@ -36,6 +37,8 @@ public class ModelTextManager : MonoBehaviour
         CoeffChangesTitle.enabled = false;
         XEquation.text = GetXEquationText(CurrentModel);
         YEquation.text = GetYEquationText(CurrentModel);
+        BuyPointsImg.SetActive(false);
+        BuyButton.text = "";
     }
 
     private string GetXEquationText(LotkaVolterraModel model)
@@ -122,6 +125,7 @@ public class ModelTextManager : MonoBehaviour
     public void UpdateBuyButtonText(int price)
     {
         BuyButton.text = (-price).ToString();
+        BuyPointsImg.SetActive(true);
     }
 
     IEnumerator ShowErrorMessage(string reason)

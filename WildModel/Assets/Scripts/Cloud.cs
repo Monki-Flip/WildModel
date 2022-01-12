@@ -11,6 +11,7 @@ public class Cloud : MonoBehaviour
     public GameObject CloseButton;
     public GameObject NextTextButton;
     public GameObject Angel;
+    public GameObject Podlojka;
 
     public TMP_Text CloudText;
 
@@ -25,6 +26,7 @@ public class Cloud : MonoBehaviour
         //PieceInitPos = new Vector3(-177f, 126f, 0);
         CloseButton.SetActive(false);
         NextTextButton.SetActive(false);
+        Podlojka.SetActive(false);
         IsCloseButton = true;
 
     }
@@ -74,6 +76,7 @@ public class Cloud : MonoBehaviour
 
     public void ActivateButton()
     {
+        Podlojka.SetActive(true);
         if (IsCloseButton)
             CloseButton.SetActive(true);
         else

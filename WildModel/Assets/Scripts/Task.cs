@@ -45,7 +45,6 @@ public class Task : MonoBehaviour
     {
         if (IsDone)
         {
-            Button.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.5f);
             Button.GetComponent<Button>().interactable = true;
             TasksManager.TasksDone++;
             TasksManager.UpdateTaskButton();
