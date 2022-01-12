@@ -99,18 +99,21 @@ public class ModelTextManager : MonoBehaviour
 
     public void Buy()
     {
-        if (CardOutlineManager.CurrentCard.Price > Score.Value)
-            StartCoroutine(ShowErrorMessage("points"));
-        else if (NewModel.Alpha < 0 || NewModel.Beta < 0 || NewModel.Sigma < 0 || NewModel.Gamma < 0)
-            StartCoroutine(ShowErrorMessage("coeff"));
-        else 
+        if (CardOutlineManager.CurrentCard != null)
         {
-            UpdateCurrentSystem();
-            UpdateTextsOnStoreOpen();
-            Score.Add(-CardOutlineManager.CurrentCard.Price);
-            LastBoughtCard = CardOutlineManager.CurrentCard;
-            PurchaseHistory.Add(CardOutlineManager.CurrentCard);
-            CardOutlineManager.DisableAllCardsOutline();
+            if (CardOutlineManager.CurrentCard.Price > Score.Value)
+                StartCoroutine(ShowErrorMessage("points"));
+            else if (NewModel.Alpha < 0 || NewModel.Beta < 0 || NewModel.Sigma < 0 || NewModel.Gamma < 0)
+                StartCoroutine(ShowErrorMessage("coeff"));
+            else
+            {
+                UpdateCurrentSystem();
+                UpdateTextsOnStoreOpen();
+                Score.Add(-CardOutlineManager.CurrentCard.Price);
+                LastBoughtCard = CardOutlineManager.CurrentCard;
+                PurchaseHistory.Add(CardOutlineManager.CurrentCard);
+                CardOutlineManager.DisableAllCardsOutline();
+            }
         }
     }
 

@@ -129,6 +129,7 @@ public class Tutorial : MonoBehaviour
                 TutorialTasksHelper.gameObject.SetActive(false);
                 Canv.enabled = true;
                 TasksPanel.SetActive(false);
+                TasksManager.ChangeOpenImgState();
                 TextCloud.PlayAnim("Open2");
                 TextCloud.DisplayText(CurrentText);
                 CurrentText++;
@@ -151,6 +152,7 @@ public class Tutorial : MonoBehaviour
                 IsRun[CurrentIteration] = true;
                 Canv.enabled = true;
                 TasksPanel.SetActive(false);
+                TasksManager.ChangeOpenImgState();
                 TextCloud.PlayAnim("Open3");
                 TextCloud.DisplayText(CurrentText);
                 CurrentText++;
@@ -334,16 +336,6 @@ public class Tutorial : MonoBehaviour
             }
         }
         else if (CurrentIteration == 22)
-        {
-            if (!IsRun[CurrentIteration])
-            {
-                IsRun[CurrentIteration] = true;
-                TextCloud.PlayAnim("Open3");
-                TextCloud.DisplayText(CurrentText);
-                CurrentText++;
-            }
-        }
-        else if (CurrentIteration == 23)
         {
             if (!IsRun[CurrentIteration])
             {
