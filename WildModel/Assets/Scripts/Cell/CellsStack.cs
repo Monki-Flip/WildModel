@@ -33,7 +33,7 @@ public class CellsStack : MonoBehaviour
         NextPosition = InitPos;
         Stack = new List<GameObject>();
         AllCells = new List<GameObject>() { CommonCell, ForestCell, WaterCell, GrassCell, MushroomCell, MountainCell };
-        AddRandomCells(InitCount);
+        AddFirstRandomCells();
     }
 
     public void AddRandomCells(int cellCount)
@@ -43,6 +43,27 @@ public class CellsStack : MonoBehaviour
         {
             var randI = rnd.Next(0, 101);
             var ind = randI <= 20 ? 0 : randI <= 40 ? 1 : randI <= 60 ? 2 : randI <= 75 ? 3 : randI <= 90 ? 4 : 5; 
+            var newCell = Instantiate(AllCells[ind]);
+            newCell.transform.parent = gameObject.GetComponentInChildren<Canvas>().gameObject.transform;
+            newCell.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1);
+            newCell.GetComponent<RectTransform>().anchoredPosition = NextPosition;
+            newCell.GetComponent<DragAndDrop>().CellsManager = CellsManager;
+
+            NextPosition += Step;
+
+            newCell.GetComponent<RectTransform>().SetAsFirstSibling();
+
+            Stack.Add(newCell);
+        }
+
+        CellsInStackCountText.text = Stack.Count.ToString();
+    }
+
+    public void AddFirstRandomCells()
+    {
+        var cellsInd = new List<int>() { 0, 0, 1, 2, 5};
+        foreach(var ind in cellsInd)
+        {
             var newCell = Instantiate(AllCells[ind]);
             newCell.transform.parent = gameObject.GetComponentInChildren<Canvas>().gameObject.transform;
             newCell.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1);

@@ -9,13 +9,22 @@ public class EmptyCell : MonoBehaviour
     public CellsStack CellsStack;
     public CellsManager CellsManager;
 
+    public GameObject ModelInfo;
+    public GameObject Shop;
+    public GameObject Pause;
+
     public List<GameObject> Neighbors;
 
 
     void OnMouseDown()
     {
-        if(CellsStack.Stack.Count > 0)
+        if(CellsStack.Stack.Count > 0 && !IsAnyPanelActive())
             CellsManager.CreateCell(this.gameObject);
+    }
+
+    private bool IsAnyPanelActive()
+    {
+        return ModelInfo.activeSelf || Shop.activeSelf || Pause.activeSelf;
     }
 
     private GameObject CreateEmptyCell()
@@ -25,6 +34,9 @@ public class EmptyCell : MonoBehaviour
         newEmptyCell.GetComponent<EmptyCell>().CellsStackOutline = CellsStackOutline;
         newEmptyCell.GetComponent<EmptyCell>().CellsStack = CellsStack;
         newEmptyCell.GetComponent<EmptyCell>().CellsManager = CellsManager;
+        newEmptyCell.GetComponent<EmptyCell>().ModelInfo = ModelInfo;
+        newEmptyCell.GetComponent<EmptyCell>().Shop = Shop;
+        newEmptyCell.GetComponent<EmptyCell>().Pause = Pause;
         newEmptyCell.GetComponent<EmptyCell>().Neighbors.Add(gameObject);
         Neighbors.Add(newEmptyCell);
         

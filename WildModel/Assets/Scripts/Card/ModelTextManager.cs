@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class ModelTextManager : MonoBehaviour
 {
@@ -16,11 +16,13 @@ public class ModelTextManager : MonoBehaviour
     public TMP_Text YEquation;
     public Score Score;
     public CardOutlineManager CardOutlineManager;
-    public TMP_Text BuyButton;
+    public TMP_Text BuyButtonPoints;
     public GameObject ErrorMessage;
     public TMP_Text ErrorText;
     public GameObject LeftBlockInfo;
     public GameObject BuyPointsImg;
+    public GameObject BuyText;
+    public Button BuyButton;
 
     public Card LastBoughtCard;
     public List<Card> PurchaseHistory;
@@ -31,14 +33,16 @@ public class ModelTextManager : MonoBehaviour
 
 
 
-    public void UpdateTextsOnStoreOpen()
+    public void UpdateTextsOnStoreClose()
     {
         CoeffChanges.text = "";
         CoeffChangesTitle.enabled = false;
         XEquation.text = GetXEquationText(CurrentModel);
         YEquation.text = GetYEquationText(CurrentModel);
         BuyPointsImg.SetActive(false);
-        BuyButton.text = "";
+        BuyButtonPoints.text = "";
+        BuyText.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 2.5f, 0);
+        BuyButton.interactable = false;
     }
 
     private string GetXEquationText(LotkaVolterraModel model)
@@ -108,7 +112,7 @@ public class ModelTextManager : MonoBehaviour
             else
             {
                 UpdateCurrentSystem();
-                UpdateTextsOnStoreOpen();
+                UpdateTextsOnStoreClose();
                 Score.Add(-CardOutlineManager.CurrentCard.Price);
                 LastBoughtCard = CardOutlineManager.CurrentCard;
                 PurchaseHistory.Add(CardOutlineManager.CurrentCard);
@@ -127,8 +131,11 @@ public class ModelTextManager : MonoBehaviour
 
     public void UpdateBuyButtonText(int price)
     {
-        BuyButton.text = (-price).ToString();
+        BuyButtonPoints.text = (-price).ToString();
         BuyPointsImg.SetActive(true);
+
+        BuyText.GetComponent<RectTransform>().anchoredPosition = new Vector3(-25, 2.5f, 0);
+        BuyButton.interactable = true;
     }
 
     IEnumerator ShowErrorMessage(string reason)
