@@ -9,8 +9,10 @@ public sealed class CameraControl : MonoBehaviour
     public float moveSpeed = 15f;
     public float Bounds;
     public Camera cam;
-    public GameObject TasksPanel;
     public CellsStack CellsStack;
+
+    public GameObject ModelInfoPanel;
+    public GameObject Shop;
 
     private Vector2 startPos;
 
@@ -30,7 +32,7 @@ public sealed class CameraControl : MonoBehaviour
                 startPos = cam.ScreenToWorldPoint(Input.mousePosition);
                 //Debug.Log("Нажал");
             }
-            if (Input.GetMouseButton(0) && !TasksPanel.activeSelf)
+            if (Input.GetMouseButton(0) && !IsAnyPanelOpen())
             {
                 //Debug.Log("Зажал");
                 float posX = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
@@ -42,5 +44,10 @@ public sealed class CameraControl : MonoBehaviour
                                                 Mathf.Lerp(transform.position.y, targetPos.y, moveSpeed * Time.deltaTime),
                                                 transform.position.z);
         }
+    }
+
+    private bool IsAnyPanelOpen()
+    {
+        return ModelInfoPanel.activeSelf || Shop.activeSelf;
     }
 }
