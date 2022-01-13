@@ -14,9 +14,6 @@ TextureImporter:
   - first:
       213: -8407979806127721331
     second: Group 743_3
-  - first:
-      213: 7374120598026317945
-    second: Group 743_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -80,10 +77,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -92,10 +89,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 16384
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,11 +107,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 63
-        width: 40
-        height: 30
+        y: 251
+        width: 160
+        height: 121
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,12 +127,12 @@ TextureImporter:
       name: Group 743_1
       rect:
         serializedVersion: 2
-        x: 74
-        y: 66
-        width: 18
-        height: 25
+        x: 296
+        y: 264
+        width: 140
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,12 +148,12 @@ TextureImporter:
       name: Group 743_2
       rect:
         serializedVersion: 2
-        x: 91
-        y: 66
-        width: 18
-        height: 25
+        x: 364
+        y: 264
+        width: 72
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -172,31 +169,10 @@ TextureImporter:
       name: Group 743_3
       rect:
         serializedVersion: 2
-        x: 2
+        x: 8
         y: 0
-        width: 38
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d847919e9ead05b80800000000000000
-      internalID: -8407979806127721331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Group 743_4
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 66
-        width: 35
-        height: 25
+        width: 153
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 970ff383d93265660800000000000000
-      internalID: 7374120598026317945
+      spriteID: d847919e9ead05b80800000000000000
+      internalID: -8407979806127721331
       vertices: []
       indices: 
       edges: []

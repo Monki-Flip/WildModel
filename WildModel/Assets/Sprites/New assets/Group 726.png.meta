@@ -41,6 +41,15 @@ TextureImporter:
   - first:
       213: 2322607586085710626
     second: Group 726_12
+  - first:
+      213: 4073993891868099427
+    second: Group 726_13
+  - first:
+      213: -4515575648671324024
+    second: Group 726_14
+  - first:
+      213: 6011470310729235765
+    second: Group 726_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -104,7 +113,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -116,7 +125,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 16384
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -134,9 +143,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 83
-        height: 108
+        y: 4
+        width: 332
+        height: 432
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,10 +163,10 @@ TextureImporter:
       name: Group 726_1
       rect:
         serializedVersion: 2
-        x: 95
-        y: 2
-        width: 83
-        height: 108
+        x: 380
+        y: 4
+        width: 332
+        height: 432
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +184,10 @@ TextureImporter:
       name: Group 726_2
       rect:
         serializedVersion: 2
-        x: 188
+        x: 754
         y: 0
-        width: 87
-        height: 112
+        width: 344
+        height: 442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +205,10 @@ TextureImporter:
       name: Group 726_3
       rect:
         serializedVersion: 2
-        x: 312
-        y: 64
-        width: 30
-        height: 34
+        x: 1248
+        y: 318
+        width: 31
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,10 +226,10 @@ TextureImporter:
       name: Group 726_4
       rect:
         serializedVersion: 2
-        x: 319
-        y: 88
-        width: 9
-        height: 13
+        x: 1277
+        y: 348
+        width: 34
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +247,10 @@ TextureImporter:
       name: Group 726_5
       rect:
         serializedVersion: 2
-        x: 380
-        y: 69
-        width: 40
-        height: 32
+        x: 1316
+        y: 338
+        width: 34
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,10 +268,10 @@ TextureImporter:
       name: Group 726_6
       rect:
         serializedVersion: 2
-        x: 454
-        y: 68
-        width: 37
-        height: 33
+        x: 1520
+        y: 273
+        width: 159
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,10 +289,10 @@ TextureImporter:
       name: Group 726_7
       rect:
         serializedVersion: 2
-        x: 309
-        y: 4
-        width: 37
-        height: 37
+        x: 1816
+        y: 268
+        width: 146
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,10 +310,10 @@ TextureImporter:
       name: Group 726_8
       rect:
         serializedVersion: 2
-        x: 401
-        y: 31
-        width: 15
-        height: 15
+        x: 1262
+        y: 254
+        width: 88
+        height: 87
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,10 +331,10 @@ TextureImporter:
       name: Group 726_9
       rect:
         serializedVersion: 2
-        x: 454
-        y: 6
-        width: 38
-        height: 38
+        x: 1340
+        y: 307
+        width: 27
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,10 +352,10 @@ TextureImporter:
       name: Group 726_10
       rect:
         serializedVersion: 2
-        x: 383
-        y: 13
-        width: 15
-        height: 15
+        x: 1236
+        y: 14
+        width: 146
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,10 +373,10 @@ TextureImporter:
       name: Group 726_11
       rect:
         serializedVersion: 2
-        x: 312
-        y: 64
-        width: 30
-        height: 37
+        x: 1604
+        y: 120
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,10 +394,10 @@ TextureImporter:
       name: Group 726_12
       rect:
         serializedVersion: 2
-        x: 383
-        y: 13
-        width: 33
-        height: 33
+        x: 1816
+        y: 22
+        width: 149
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,6 +407,69 @@ TextureImporter:
       bones: []
       spriteID: 22b24493b4f8b3020800000000000000
       internalID: 2322607586085710626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Group 726_13
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 48
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 363c8e51cdbb98830800000000000000
+      internalID: 4073993891868099427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Group 726_14
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 254
+        width: 119
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888aa804fd37551c0800000000000000
+      internalID: -4515575648671324024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Group 726_15
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 48
+        width: 132
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53db2d0c5680d6350800000000000000
+      internalID: 6011470310729235765
       vertices: []
       indices: 
       edges: []

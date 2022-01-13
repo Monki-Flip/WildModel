@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4062501137709059862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.003, y: 0.226, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2294629168865323127}
@@ -71,12 +71,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: -7837676370989016755, guid: 02fa69d297e6b6a47822c581f93323b8, type: 3}
+  m_Sprite: {fileID: 4932177625875906494, guid: d75627e9f1ae13449a05d25bcdd12c09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.71, y: 0.71}
+  m_Size: {x: 2.84, y: 2.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 8700248660904297358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 7836859949131141623}
   m_Father: {fileID: 0}
@@ -156,12 +156,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1452721522420851163, guid: 02fa69d297e6b6a47822c581f93323b8, type: 3}
+  m_Sprite: {fileID: -5317589117175174123, guid: d75627e9f1ae13449a05d25bcdd12c09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.8828125}
+  m_Size: {x: 4.56, y: 3.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663da127c69c77e42892e808b8791fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsAnimalSpawn: 0
+  IsAnimalOn: 0
   SpawnCount: 0
   Name: Mountain
   Prefab: {fileID: 0}
@@ -208,17 +208,17 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.14, y: 0.82}
-    newSize: {x: 1, y: 0.8828125}
+    oldSize: {x: 4.56, y: 3.28}
+    newSize: {x: 4.56, y: 3.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.5646375, y: -0.008419957}
-      - {x: 0.20860444, y: -0.41171867}
-      - {x: -0.3704594, y: -0.4027347}
-      - {x: -0.5729284, y: -0.014238544}
-      - {x: -0.21271747, y: 0.4025736}
-      - {x: 0.3597757, y: 0.41056573}
+    - - {x: 2.258099, y: -0.01844044}
+      - {x: 0.8098334, y: -1.6542587}
+      - {x: -1.4613894, y: -1.637208}
+      - {x: -2.2902105, y: -0.03770847}
+      - {x: -0.8730172, y: 1.637047}
+      - {x: 1.4315666, y: 1.6163305}

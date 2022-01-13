@@ -32,6 +32,15 @@ TextureImporter:
   - first:
       213: -7177820578792258280
     second: Group 742_9
+  - first:
+      213: 5498110328770173458
+    second: Group 742_10
+  - first:
+      213: 6004827182835843137
+    second: Group 742_11
+  - first:
+      213: 5566472802220549774
+    second: Group 742_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -95,10 +104,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,10 +116,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 16384
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,10 +133,10 @@ TextureImporter:
       name: Group 742_0
       rect:
         serializedVersion: 2
-        x: 227
-        y: 436
-        width: 174
-        height: 30
+        x: 908
+        y: 1745
+        width: 696
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,10 +154,10 @@ TextureImporter:
       name: Group 742_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 397
-        width: 125
-        height: 30
+        x: 320
+        y: 1589
+        width: 500
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +175,10 @@ TextureImporter:
       name: Group 742_2
       rect:
         serializedVersion: 2
-        x: 227
-        y: 398
-        width: 174
-        height: 30
+        x: 908
+        y: 1593
+        width: 696
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +196,10 @@ TextureImporter:
       name: Group 742_3
       rect:
         serializedVersion: 2
-        x: 80
-        y: 344
-        width: 125
-        height: 30
+        x: 320
+        y: 1377
+        width: 500
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,10 +217,10 @@ TextureImporter:
       name: Group 742_4
       rect:
         serializedVersion: 2
-        x: 227
-        y: 340
-        width: 183
-        height: 41
+        x: 908
+        y: 1359
+        width: 732
+        height: 165
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,10 +238,10 @@ TextureImporter:
       name: Group 742_5
       rect:
         serializedVersion: 2
-        x: 98
-        y: 36
-        width: 10
-        height: 213
+        x: 1579
+        y: 1188
+        width: 13
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,10 +259,10 @@ TextureImporter:
       name: Group 742_6
       rect:
         serializedVersion: 2
-        x: 132
-        y: 216
-        width: 19
-        height: 19
+        x: 394
+        y: 144
+        width: 37
+        height: 852
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,10 +280,10 @@ TextureImporter:
       name: Group 742_7
       rect:
         serializedVersion: 2
-        x: 220
-        y: 31
-        width: 239
-        height: 223
+        x: 526
+        y: 866
+        width: 78
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,10 +301,10 @@ TextureImporter:
       name: Group 742_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 31
-        height: 31
+        x: 548
+        y: 752
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,10 +322,10 @@ TextureImporter:
       name: Group 742_9
       rect:
         serializedVersion: 2
-        x: 45
-        y: 10
-        width: 10
-        height: 10
+        x: 876
+        y: 124
+        width: 960
+        height: 892
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,6 +335,69 @@ TextureImporter:
       bones: []
       spriteID: 815499b9632436c90800000000000000
       internalID: -7177820578792258280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Group 742_10
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 152
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a904ab6363d4c40800000000000000
+      internalID: 5498110328770173458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Group 742_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1404a82028e655350800000000000000
+      internalID: 6004827182835843137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Group 742_12
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 40
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e86aa3c6585104d40800000000000000
+      internalID: 5566472802220549774
       vertices: []
       indices: 
       edges: []

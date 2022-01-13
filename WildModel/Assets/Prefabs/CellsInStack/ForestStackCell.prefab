@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5344027810736915500, guid: 02fa69d297e6b6a47822c581f93323b8, type: 3}
+  m_Sprite: {fileID: -9006839054906023628, guid: 69ef779ef6e8931489031627a5b5d3c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663da127c69c77e42892e808b8791fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsAnimalSpawn: 0
+  IsAnimalOn: 0
   SpawnCount: 0
   Name: Forest
   Prefab: {fileID: 0}
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CellsStack: {fileID: 0}
+  CellsManager: {fileID: 0}
 --- !u!60 &228734359116569669
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -122,10 +122,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,10 +134,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 16384
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -151,10 +151,10 @@ TextureImporter:
       name: Group 727_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 262
-        width: 225
-        height: 75
+        x: 20
+        y: 1048
+        width: 897
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,9 +173,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 174
-        width: 235
-        height: 75
+        y: 696
+        width: 937
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: Group 727_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 77
-        width: 42
-        height: 41
+        x: 8
+        y: 308
+        width: 165
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,10 +214,10 @@ TextureImporter:
       name: Group 727_3
       rect:
         serializedVersion: 2
-        x: 77
-        y: 110
-        width: 8
-        height: 8
+        x: 307
+        y: 439
+        width: 33
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,10 +235,10 @@ TextureImporter:
       name: Group 727_4
       rect:
         serializedVersion: 2
-        x: 98
-        y: 110
-        width: 9
-        height: 8
+        x: 393
+        y: 439
+        width: 33
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: Group 727_5
       rect:
         serializedVersion: 2
-        x: 144
-        y: 80
-        width: 38
-        height: 38
+        x: 576
+        y: 323
+        width: 149
+        height: 149
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,10 +277,10 @@ TextureImporter:
       name: Group 727_6
       rect:
         serializedVersion: 2
-        x: 222
-        y: 101
-        width: 15
-        height: 17
+        x: 890
+        y: 404
+        width: 57
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,10 +298,10 @@ TextureImporter:
       name: Group 727_7
       rect:
         serializedVersion: 2
-        x: 71
-        y: 72
-        width: 42
-        height: 33
+        x: 284
+        y: 289
+        width: 165
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,10 +319,10 @@ TextureImporter:
       name: Group 727_8
       rect:
         serializedVersion: 2
-        x: 140
-        y: 77
-        width: 10
-        height: 9
+        x: 560
+        y: 308
+        width: 37
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,10 +340,10 @@ TextureImporter:
       name: Group 727_9
       rect:
         serializedVersion: 2
-        x: 140
-        y: 84
-        width: 6
-        height: 6
+        x: 561
+        y: 335
+        width: 23
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,10 +361,10 @@ TextureImporter:
       name: Group 727_10
       rect:
         serializedVersion: 2
-        x: 209
-        y: 77
-        width: 42
-        height: 22
+        x: 836
+        y: 308
+        width: 165
+        height: 87
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,10 +382,10 @@ TextureImporter:
       name: Group 727_11
       rect:
         serializedVersion: 2
-        x: 147
-        y: 77
-        width: 6
-        height: 6
+        x: 587
+        y: 308
+        width: 24
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,10 +403,10 @@ TextureImporter:
       name: Group 727_12
       rect:
         serializedVersion: 2
-        x: 2
-        y: 6
-        width: 42
-        height: 41
+        x: 8
+        y: 24
+        width: 165
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,10 +424,10 @@ TextureImporter:
       name: Group 727_13
       rect:
         serializedVersion: 2
-        x: 75
+        x: 300
         y: 0
-        width: 34
-        height: 42
+        width: 133
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -445,10 +445,10 @@ TextureImporter:
       name: Group 727_14
       rect:
         serializedVersion: 2
-        x: 141
-        y: 7
-        width: 41
-        height: 40
+        x: 564
+        y: 28
+        width: 161
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -466,10 +466,10 @@ TextureImporter:
       name: Group 727_15
       rect:
         serializedVersion: 2
-        x: 212
-        y: 6
-        width: 36
-        height: 41
+        x: 848
+        y: 24
+        width: 145
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -487,10 +487,10 @@ TextureImporter:
       name: Group 727_16
       rect:
         serializedVersion: 2
-        x: 71
-        y: 72
-        width: 42
-        height: 46
+        x: 284
+        y: 289
+        width: 165
+        height: 183
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -508,10 +508,10 @@ TextureImporter:
       name: Group 727_17
       rect:
         serializedVersion: 2
-        x: 140
-        y: 77
-        width: 42
-        height: 41
+        x: 560
+        y: 308
+        width: 165
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -529,10 +529,10 @@ TextureImporter:
       name: Group 727_18
       rect:
         serializedVersion: 2
-        x: 209
-        y: 77
-        width: 42
-        height: 41
+        x: 836
+        y: 308
+        width: 165
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

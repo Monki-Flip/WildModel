@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3830343952107496092, guid: 02fa69d297e6b6a47822c581f93323b8, type: 3}
+  m_Sprite: {fileID: 3410560719376683060, guid: d75627e9f1ae13449a05d25bcdd12c09, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663da127c69c77e42892e808b8791fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsAnimalSpawn: 0
+  IsAnimalOn: 0
   SpawnCount: 0
   Name: Mountain
   Prefab: {fileID: 0}
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CellsStack: {fileID: 0}
+  CellsManager: {fileID: 0}
 --- !u!60 &5745320258164002556
 PolygonCollider2D:
   m_ObjectHideFlags: 0
