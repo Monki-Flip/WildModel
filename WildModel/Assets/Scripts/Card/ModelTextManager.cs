@@ -43,6 +43,8 @@ public class ModelTextManager : MonoBehaviour
         BuyButtonPoints.text = "";
         BuyText.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 2.5f, 0);
         BuyButton.interactable = false;
+        ErrorMessage.SetActive(false);
+        LeftBlockInfo.SetActive(true);
     }
 
     private string GetXEquationText(LotkaVolterraModel model)
@@ -53,8 +55,8 @@ public class ModelTextManager : MonoBehaviour
         var currD = CurrentModel.GetFuncValues(CurrentModel.Preys, CurrentModel.Predators)[0];
 
         text.Append(colorTagBegin(newD, currD) + Math.Round(newD, 1).ToString() + colorTagEnd(newD, currD) + " = (" 
-                    + colorTagBegin(model.Alpha, CurrentModel.Alpha) + model.Alpha.ToString() + colorTagEnd(model.Alpha, CurrentModel.Alpha) + " - "
-                    + colorTagBegin(model.Beta, CurrentModel.Beta) + model.Beta.ToString() + colorTagEnd(model.Beta, CurrentModel.Beta) + " · " 
+                    + colorTagBegin(model.Alpha, CurrentModel.Alpha) + Math.Round(model.Alpha, 2).ToString() + colorTagEnd(model.Alpha, CurrentModel.Alpha) + " - "
+                    + colorTagBegin(model.Beta, CurrentModel.Beta) + Math.Round(model.Beta, 2).ToString() + colorTagEnd(model.Beta, CurrentModel.Beta) + " · " 
                     + Math.Round(model.Predators, 1).ToString() + ")" + Math.Round(model.Preys, 1).ToString());
 
         return text.ToString();
@@ -66,10 +68,10 @@ public class ModelTextManager : MonoBehaviour
 
         var newD = model.GetFuncValues(model.Preys, model.Predators)[1];
         var currD = CurrentModel.GetFuncValues(CurrentModel.Preys, CurrentModel.Predators)[1];
-
+        //Debug.Log(model.Alpha + ",     " + model.Beta + ",     " + model.Gamma + ",     " + model.Sigma);
         text.Append(colorTagBegin(newD, currD) + Math.Round(newD, 1).ToString() + colorTagEnd(newD, currD) + " = (-"
-                    + colorTagBegin(model.Gamma, CurrentModel.Gamma) + model.Gamma.ToString() + colorTagEnd(model.Gamma, CurrentModel.Gamma) + " + "
-                    + colorTagBegin(model.Sigma, CurrentModel.Sigma) + model.Sigma.ToString() + colorTagEnd(model.Sigma, CurrentModel.Sigma) + " · "
+                    + colorTagBegin(model.Gamma, CurrentModel.Gamma) + Math.Round(model.Gamma, 2).ToString() + colorTagEnd(model.Gamma, CurrentModel.Gamma) + " + "
+                    + colorTagBegin(model.Sigma, CurrentModel.Sigma) + Math.Round(model.Sigma, 2).ToString() + colorTagEnd(model.Sigma, CurrentModel.Sigma) + " · "
                     + Math.Round(model.Preys, 1).ToString() + ")" + Math.Round(model.Predators, 1).ToString());
 
         return text.ToString();
@@ -91,6 +93,7 @@ public class ModelTextManager : MonoBehaviour
 
     public void UpdateNewSystem(double alphaDiff, double betaDiff, double gammaDiff, double sigmaDiff)
     {
+        Debug.Log("обновление системы:" + gammaDiff + ", " + CurrentModel.Gamma);
         NewModel.Predators = CurrentModel.Predators;
         NewModel.Preys = CurrentModel.Preys;
         NewModel.Alpha = CurrentModel.Alpha + alphaDiff;
@@ -107,7 +110,7 @@ public class ModelTextManager : MonoBehaviour
         {
             if (CardOutlineManager.CurrentCard.Price > Score.Value)
                 StartCoroutine(ShowErrorMessage("points"));
-            else if (NewModel.Alpha < 0 || NewModel.Beta < 0 || NewModel.Sigma < 0 || NewModel.Gamma < 0)
+            else if (Math.Round(NewModel.Alpha, 2) <= 0 || Math.Round(NewModel.Beta, 2) <= 0 || Math.Round(NewModel.Sigma, 2) <= 0 || Math.Round(NewModel.Gamma, 2) <= 0)
                 StartCoroutine(ShowErrorMessage("coeff"));
             else
             {

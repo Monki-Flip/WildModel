@@ -25,16 +25,17 @@ public sealed class CameraControl : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(CellsStack.IsDragging + ", " + IsAnyPanelOpen() + ", ");
         if (!CellsStack.IsDragging)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 startPos = cam.ScreenToWorldPoint(Input.mousePosition);
-                //Debug.Log("Нажал");
+                Debug.Log("Нажал");
             }
             if (Input.GetMouseButton(0) && !IsAnyPanelOpen())
             {
-                //Debug.Log("Зажал");
+                Debug.Log("Зажал");
                 float posX = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
                 float posY = cam.ScreenToWorldPoint(Input.mousePosition).y - startPos.y;
                 targetPos = new Vector2(Mathf.Clamp(transform.position.x - posX, -Bounds, Bounds),

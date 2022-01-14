@@ -117,7 +117,7 @@ public class Graph : MonoBehaviour
         var dotsVectors = new Vector3[dots.Length - (dots.Length - AmountXDivision * 100)];
         var x = 0d;
         var step = GetStep(GetMaxDiv(), GetMinDiv());
-        Debug.Log(step);
+        //Debug.Log(step);
         for (var i = 0; i < dots.Length - (dots.Length - AmountXDivision * 100); i++)
         {
             dotsVectors[i] = new Vector3((float)x * Scale, (float)dots[i] * Scale / step, 0);

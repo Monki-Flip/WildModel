@@ -9,6 +9,7 @@ public class CellsStack : MonoBehaviour
     public int InitCount;
     public bool IsDragging;
 
+    public GameObject CellsCountPanel;
     public TMP_Text CellsInStackCountText;
     public CellsManager CellsManager;
 
@@ -55,7 +56,7 @@ public class CellsStack : MonoBehaviour
 
             Stack.Add(newCell);
         }
-
+        CellsCountPanel.SetActive(true);
         CellsInStackCountText.text = Stack.Count.ToString();
     }
 
@@ -76,7 +77,7 @@ public class CellsStack : MonoBehaviour
 
             Stack.Add(newCell);
         }
-
+        CellsCountPanel.SetActive(true);
         CellsInStackCountText.text = Stack.Count.ToString();
     }
 
@@ -89,6 +90,12 @@ public class CellsStack : MonoBehaviour
         {
             Stack[i].transform.localPosition -= Step;
         }
+
+        if (Stack.Count == 0)
+            CellsCountPanel.SetActive(false);
+        else
+            CellsCountPanel.SetActive(true);
+
         CellsInStackCountText.text = Stack.Count.ToString();
     }
 }

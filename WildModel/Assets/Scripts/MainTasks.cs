@@ -100,7 +100,7 @@ public class MainTasks : MonoBehaviour
             {
                 var foodCount = Physics2D.OverlapCircleAll(cell.transform.position, 0.55f)
                                         .Where(x => x.TryGetComponent<Cell>(out Cell c) && (x.gameObject.GetComponent<Cell>().Name == "Grass" || x.gameObject.GetComponent<Cell>().Name == "Mushroom")).Count();
-                Debug.Log(foodCount);
+                //Debug.Log(foodCount);
                 if (foodCount > 1)
                 {
                     TasksManager.TasksPrefabInPanel.Where(x => x.name == "Task2(Clone)").First().GetComponent<Task>().MarkSecondCondition();

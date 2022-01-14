@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    public GameObject MESSAGE;  //MESSAGE.SetActive(true);
-
     public GameObject TutorialPanel;
     public TasksManager TasksManager;
     public GameObject AngelPanel;

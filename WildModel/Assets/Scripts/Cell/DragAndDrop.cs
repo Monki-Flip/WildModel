@@ -4,16 +4,16 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerUpHandler
 {
     public CellsStack CellsStack;
     public CellsManager CellsManager; 
 
-    private RectTransform rectTransform;
-    private Canvas canvas;
-    private Vector3 StartPos;
-    private PolygonCollider2D Collider;
-    private Collider2D IntersectedCollider;
+    public RectTransform rectTransform;
+    public Canvas canvas;
+    public Vector3 StartPos;
+    public PolygonCollider2D Collider;
+    public Collider2D IntersectedCollider;
 
 
     private void Start()
@@ -30,9 +30,12 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        StartPos = transform.localPosition;
-        StartCoroutine(ScaleToBoardCellSize());
-        //Debug.Log("OnBeginDrag");
+        if (CellsStack.Stack[0] == gameObject)
+        {
+            StartPos = transform.localPosition;
+            StartCoroutine(ScaleToBoardCellSize());
+            //Debug.Log("OnBeginDrag");
+        }
     }
 
     IEnumerator ScaleToBoardCellSize()
@@ -46,45 +49,51 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if (CellsStack.Stack[0] == gameObject)
+        {
+            //Debug.Log("OnDrag");
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
-        var hittenColliders = Physics2D.OverlapCircleAll(transform.position, 0.5f).Where(x => x.gameObject.name == "EmptyCell(Clone)" || x.gameObject.name == "EmptyCell").ToList();
-        var minLen = float.MaxValue;
-        if(IntersectedCollider != null)
-            IntersectedCollider.GetComponent<SpriteRenderer>().color = Color.white;
-        for (var i = 0; i < hittenColliders.Count; i++)
-        {
-            if(hittenColliders[i].Distance(gameObject.GetComponent<PolygonCollider2D>()).distance < minLen)
-            {
-                minLen = hittenColliders[i].Distance(gameObject.GetComponent<PolygonCollider2D>()).distance;
-                IntersectedCollider = hittenColliders[i];
-            }
-        }
-        if (IntersectedCollider != null)
-            IntersectedCollider.GetComponent<SpriteRenderer>().color =  Color.black;
-        
-        if (hittenColliders.Count == 0)
-        {
+            var hittenColliders = Physics2D.OverlapCircleAll(transform.position, 0.5f).Where(x => x.gameObject.name == "EmptyCell(Clone)" || x.gameObject.name == "EmptyCell").ToList();
+            var minLen = float.MaxValue;
             if (IntersectedCollider != null)
                 IntersectedCollider.GetComponent<SpriteRenderer>().color = Color.white;
-            IntersectedCollider = null;
+            for (var i = 0; i < hittenColliders.Count; i++)
+            {
+                if (hittenColliders[i].Distance(gameObject.GetComponent<PolygonCollider2D>()).distance < minLen)
+                {
+                    minLen = hittenColliders[i].Distance(gameObject.GetComponent<PolygonCollider2D>()).distance;
+                    IntersectedCollider = hittenColliders[i];
+                }
+            }
+            if (IntersectedCollider != null)
+                IntersectedCollider.GetComponent<SpriteRenderer>().color = Color.black;
+
+            if (hittenColliders.Count == 0)
+            {
+                if (IntersectedCollider != null)
+                    IntersectedCollider.GetComponent<SpriteRenderer>().color = Color.white;
+                IntersectedCollider = null;
+            }
         }
     }
 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnEndDrag");
-        if (IntersectedCollider != null)
+        if (CellsStack.Stack[0] == gameObject)
         {
-            Debug.Log(IntersectedCollider.gameObject);
-            CellsManager.CreateCell(IntersectedCollider.gameObject);
-        }
-        else
-        {
-            StartCoroutine(GoToStartPosition());
-            StartCoroutine(ScaleToCellInStackSize());
+            //Debug.Log("OnEndDrag");
+            if (IntersectedCollider != null)
+            {
+                //Debug.Log(IntersectedCollider.gameObject);
+                CellsManager.CreateCell(IntersectedCollider.gameObject);
+            }
+            else
+            {
+                StartCoroutine(GoToStartPosition());
+                StartCoroutine(ScaleToCellInStackSize());
+            }
         }
     }
 
@@ -99,7 +108,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             transform.localPosition = Vector3.Lerp(origin, StartPos, currentMovementTime / totalMovementTime);
             yield return null;
         }
-        CellsStack.IsDragging = false;
     }
 
     IEnumerator ScaleToCellInStackSize()
@@ -115,6 +123,11 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
         CellsStack.IsDragging = true;
         //Debug.Log("OnPointerDown");
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        CellsStack.IsDragging = false;
     }
 
 }

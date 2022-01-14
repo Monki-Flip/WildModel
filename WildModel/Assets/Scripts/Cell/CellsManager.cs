@@ -40,7 +40,7 @@ public class CellsManager : MonoBehaviour
         var cells = Cells.Where(x => x.GetComponent<Cell>().Name != "Water" && x.GetComponent<Cell>().Name != "Mountain" && x.GetComponent<Cell>().Animal == null).ToList();
         var rnd = new System.Random();
         var randI = rnd.Next(0, cells.Count);
-        Debug.Log(randI + "   " + cells.Count);
+        //Debug.Log(randI + "   " + cells.Count);
         return cells[randI];
     }
 
@@ -91,7 +91,14 @@ public class CellsManager : MonoBehaviour
             Destroy(emptyCell);
             Cells.Add(cell);
             LastAddedScore = Score.Value - LastAddedScore;
-            
+
+            var colliders = new Collider2D[10];
+            cell.GetComponent<PolygonCollider2D>().GetContacts(new ContactFilter2D(), colliders);
+            foreach(var coll in colliders)
+            {
+                if (coll != null && coll.gameObject.tag == "EmptyCell")
+                    Destroy(coll.gameObject);
+            }
         }
     }
 
@@ -102,17 +109,14 @@ public class CellsManager : MonoBehaviour
             IsAnyCellOnBoard = true;
             return true;
         }
-        var hittenColliders = Physics2D.OverlapCircleAll(emptyCell.transform.position, 0.55f);
-        for (var i = 0; i < hittenColliders.Length; i++)
-            if (hittenColliders[i].gameObject.tag == "Cell")
-                return true;
-        return false;
+        return true;
     }
 
     public void CheckAround(Cell cell, GameObject emptyCell)
     {
-        var hittenColliders = Physics2D.OverlapCircleAll(emptyCell.transform.position, 0.55f);
-        //Debug.Log(hittenColliders.Length);
+        var hittenColliders = Physics2D.OverlapCircleAll(emptyCell.transform.position, 1f);
+        //foreach(var coll in hittenColliders)
+        //    Debug.Log(coll.gameObject.name + coll.gameObject.transform.position);
 
         for (var i = 0; i < hittenColliders.Length; i++)
         {
@@ -147,7 +151,7 @@ public class CellsManager : MonoBehaviour
 
     public void MarkPosition(GameObject obj, Cell cell, GameObject emptyCell)
     {
-        //Debug.Log(obj.name);
+        //Debug.Log(obj.name + obj.transform.position);
         //cell.Neighbors.Add(obj);
         //obj.GetComponent<Cell>().Neighbors.Add(cell.gameObject);
 
