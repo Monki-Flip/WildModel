@@ -76,20 +76,22 @@ public class Graph : MonoBehaviour
     public int GetMaxDiv()
     {
         Lotka.FindPredicts();
-        var dots = Lotka.PreysPredict;
+        var preyDots = Lotka.PreysPredict;
+        var predDots = Lotka.PredatorsPredict;
         var max = 0f;
-        for (var i = 0; i < dots.Length - (dots.Length - AmountXDivision * 100); i++)
-            max = Math.Max(max, (float) dots[i]);
+        for (var i = 0; i < preyDots.Length - (preyDots.Length - AmountXDivision * 100); i++)
+            max = Math.Max(Math.Max(max, (float)predDots[i]), (float)preyDots[i]);
         return ((int)max + 9) / 10 * 10;
     }
 
     public int GetMinDiv()
     {
         Lotka.FindPredicts();
-        var dots = Lotka.PreysPredict;
+        var preyDots = Lotka.PreysPredict;
+        var predDots = Lotka.PredatorsPredict;
         var min = 0f;
-        for (var i = 0; i < dots.Length - (dots.Length - AmountXDivision * 100); i++)
-            min = Math.Min(min, (float)dots[i]);
+        for (var i = 0; i < preyDots.Length - (preyDots.Length - AmountXDivision * 100); i++)
+            min = Math.Min(Math.Min(min, (float)predDots[i]), (float)preyDots[i]);
         return ((int)min + 9) / 10 * 10;
     }
 
