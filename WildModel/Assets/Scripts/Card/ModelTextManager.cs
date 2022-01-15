@@ -146,7 +146,7 @@ public class ModelTextManager : MonoBehaviour
         switch(reason)
         {
             case "coeff":
-                ErrorText.text = "Один из коэффициентов стал ниже нуля, поэтому ты не можешь купить эту карту, друг";
+                ErrorText.text = "Один из коэффициентов стал ниже нуля или равен ему, поэтому ты не можешь купить эту карту, друг";
                 break;
             case "points":
                 ErrorText.text = "Тебе не хватает очков, друг";
